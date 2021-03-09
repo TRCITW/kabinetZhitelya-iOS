@@ -22,6 +22,11 @@
 		DCB9417425EFB19E006DBC3D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417325EFB19E006DBC3D /* UIColor + Extension.swift */; };
 		DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417625EFB1AA006DBC3D /* UIFont + Extension.swift */; };
 		DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */; };
+		E157C0AF25F3F607009535D9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E157C0AE25F3F607009535D9 /* Alamofire.framework */; };
+		E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C025F4CEA7009535D9 /* MainVC.swift */; };
+		E157C0C525F4D49A009535D9 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C425F4D49A009535D9 /* SignUpVC.swift */; };
+		E157C0C825F4DB6C009535D9 /* UIAlertController + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C725F4DB6C009535D9 /* UIAlertController + Extension.swift */; };
+		E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -43,6 +48,11 @@
 		DCB9417625EFB1AA006DBC3D /* UIFont + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIFont + Extension.swift"; sourceTree = "<group>"; };
 		DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0E78583BD3830E900D63C01 /* Pods-KabinetZhitelya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.debug.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.debug.xcconfig"; sourceTree = "<group>"; };
+		E157C0AE25F3F607009535D9 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		E157C0C025F4CEA7009535D9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = "KabinetZhitelya/View Controllers/MainVC.swift"; sourceTree = SOURCE_ROOT; };
+		E157C0C425F4D49A009535D9 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
+		E157C0C725F4DB6C009535D9 /* UIAlertController + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIAlertController + Extension.swift"; sourceTree = "<group>"; };
+		E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryVC.swift; sourceTree = "<group>"; };
 		E2B319E9892B2E22AE264F67 /* Pods-KabinetZhitelya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.release.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -51,6 +61,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				E157C0AF25F3F607009535D9 /* Alamofire.framework in Frameworks */,
 				66C22BCA19B0A8724BEFE07C /* Pods_KabinetZhitelya.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -70,6 +81,7 @@
 		541EB101AD170AECEBBCF76E /* Frameworks */ = {
 			isa = PBXGroup;
 			children = (
+				E157C0AE25F3F607009535D9 /* Alamofire.framework */,
 				4B9FAE4452C81384E6E7D7BA /* Pods_KabinetZhitelya.framework */,
 			);
 			name = Frameworks;
@@ -111,6 +123,9 @@
 			children = (
 				DC3C9C4925EFA7540047F13F /* SignInVC.swift */,
 				DC3B622E25EFEC0A0064E457 /* EnterPasswordVC.swift */,
+				E157C0C025F4CEA7009535D9 /* MainVC.swift */,
+				E157C0C425F4D49A009535D9 /* SignUpVC.swift */,
+				E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */,
 			);
 			path = "View Controllers";
 			sourceTree = "<group>";
@@ -175,6 +190,7 @@
 				DCB9417025EFB190006DBC3D /* UIButton + Extension.swift */,
 				DCB9417325EFB19E006DBC3D /* UIColor + Extension.swift */,
 				DCB9417625EFB1AA006DBC3D /* UIFont + Extension.swift */,
+				E157C0C725F4DB6C009535D9 /* UIAlertController + Extension.swift */,
 			);
 			path = UIKit;
 			sourceTree = "<group>";
@@ -190,7 +206,7 @@
 				DC3C9C3E25EFA7540047F13F /* Sources */,
 				DC3C9C3F25EFA7540047F13F /* Frameworks */,
 				DC3C9C4025EFA7540047F13F /* Resources */,
-				61983C7A2F48102110A1CE65 /* [CP] Embed Pods Frameworks */,
+				74279EFD41DF0A3228A339B9 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -248,9 +264,9 @@
 /* End PBXResourcesBuildPhase section */
 
 /* Begin PBXShellScriptBuildPhase section */
-		61983C7A2F48102110A1CE65 /* [CP] Embed Pods Frameworks */ = {
+		74279EFD41DF0A3228A339B9 /* [CP] Embed Pods Frameworks */ = {
 			isa = PBXShellScriptBuildPhase;
-			buildActionMask = 8;
+			buildActionMask = 2147483647;
 			files = (
 			);
 			inputFileListPaths = (
@@ -260,9 +276,10 @@
 			outputFileListPaths = (
 				"${PODS_ROOT}/Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya-frameworks-${CONFIGURATION}-output-files.xcfilelist",
 			);
-			runOnlyForDeploymentPostprocessing = 1;
+			runOnlyForDeploymentPostprocessing = 0;
 			shellPath = /bin/sh;
 			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
 		};
 		782FB8A834E9AD81CA1CB4B5 /* [CP] Check Pods Manifest.lock */ = {
 			isa = PBXShellScriptBuildPhase;
@@ -294,15 +311,19 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */,
+				E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */,
 				DC3B623225EFF44F0064E457 /* Constants.swift in Sources */,
 				DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */,
+				E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */,
 				DC3B622F25EFEC0A0064E457 /* EnterPasswordVC.swift in Sources */,
 				DCB9417425EFB19E006DBC3D /* UIColor + Extension.swift in Sources */,
 				DC3C9C4A25EFA7540047F13F /* SignInVC.swift in Sources */,
 				DCB9416E25EFB17D006DBC3D /* UITextField + Extension.swift in Sources */,
 				DC3C9C4625EFA7540047F13F /* AppDelegate.swift in Sources */,
 				DCB9416B25EFB16D006DBC3D /* UILabel + Extension.swift in Sources */,
+				E157C0C525F4D49A009535D9 /* SignUpVC.swift in Sources */,
 				DC3C9C4825EFA7540047F13F /* SceneDelegate.swift in Sources */,
+				E157C0C825F4DB6C009535D9 /* UIAlertController + Extension.swift in Sources */,
 				DCB9417125EFB190006DBC3D /* UIButton + Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -451,18 +472,19 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kabinet-zhitelya.rf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Debug;
 		};
@@ -473,19 +495,20 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 5;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
+				IPHONEOS_DEPLOYMENT_TARGET = 12.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 1.4.2;
+				MARKETING_VERSION = 2.0.0;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kabinet-zhitelya.rf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = 1;
+				TARGETED_DEVICE_FAMILY = "1,2";
 			};
 			name = Release;
 		};

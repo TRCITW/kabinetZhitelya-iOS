@@ -22,7 +22,7 @@ extension UIButton {
         self.backgroundColor = UIColor(red: 255/255, green: 255/255, blue: 255/255, alpha: 1.0)
         self.setTitle(title, for: .normal)
         self.layer.borderWidth = 1.0
-        self.layer.borderColor = UIColor(red: 130/255, green: 130/255, blue: 130/255, alpha: 1.0).cgColor
+        self.layer.borderColor = UIColor(red: 230/255, green: 233/255, blue: 235/255, alpha: 1.0).cgColor
         self.setTitleColor(UIColor().setupCustomBlue(), for: .normal)
     }
     
