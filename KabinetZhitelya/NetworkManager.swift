@@ -87,6 +87,34 @@ class NetworkManager {
         }
     }
     
+    static func linkFromQRCode(QRCode: String, completion200: @escaping (Any) -> (), completion404: @escaping () -> ()) {
+        guard let url = URL(string: Constants.baseUrl + "api/v4/public/bank_redirect_by_qr/") else { return }
+        var request = URLRequest(url: url)
+        let body: [String: Any] = ["text": QRCode]
+        let httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
+        request.httpBody = httpBody
+        request.method = .post
+        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        request.setValue("application/json", forHTTPHeaderField: "Accept")
+        
+        AF.request(request).responseJSON { (response) in
+            print(response.response?.statusCode ?? "empty")
+            switch response.result {
+            case .success(let value):
+                let statusCode = response.response?.statusCode
+                if statusCode == 200 {
+                    let response = value as? [String: Any]
+                    let url = response!["bank_url"]!
+                    completion200(url)
+                } else {
+                    completion404()
+                }
+            case .failure(let error):
+                print("Error is: \(error.localizedDescription)")
+            }
+        }
+    }
+    
     
     
 }

@@ -26,7 +26,7 @@ class MainVC: UIViewController, UIWebViewDelegate {
         }
         webView.load(request)
         checkloginStatus()
-        print("Cookies on main Screen is: \(token)")
+        //print("Cookies on main Screen is: \(token)")
     }
     
     
