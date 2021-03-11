@@ -25,8 +25,9 @@ class MainVC: UIViewController, UIWebViewDelegate {
             webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
         }
         webView.load(request)
+        
         checkloginStatus()
-        //print("Cookies on main Screen is: \(token)")
+        
     }
     
     
@@ -41,5 +42,17 @@ class MainVC: UIViewController, UIWebViewDelegate {
             }
         }
     }
+    
+    
+
+}
+
+extension MainVC: WKScriptMessageHandler {
+    func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
+        print(message.body)
+        print(123)
+        //print(web)
+    }
+    
 
 }

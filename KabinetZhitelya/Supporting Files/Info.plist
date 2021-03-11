@@ -23,7 +23,7 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Need your camera.</string>
+	<string>Доступ к камере необходим для того, чтобы прикладывать фотографии к заявкам и к обращениям, оплаты по QR коду</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

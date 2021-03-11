@@ -29,7 +29,7 @@ class NetworkManager {
                         let token = UserDefaults.standard.setValue("1", forKey: "token")
                         completion201(cookies)
                     }
-                } else if statusCode == 403 {
+                } else if statusCode == 404 {
                     completion403()
                 }
             case .failure(let error):
@@ -106,7 +106,7 @@ class NetworkManager {
                     let response = value as? [String: Any]
                     let url = response!["bank_url"]!
                     completion200(url)
-                } else {
+                } else if statusCode == 404 {
                     completion404()
                 }
             case .failure(let error):
