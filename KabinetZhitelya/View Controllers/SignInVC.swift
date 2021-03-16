@@ -11,15 +11,6 @@ import AVFoundation
 
 class SignInVC: UIViewController {
     
-//    lazy var nextStepButton: UIButton = {
-//        let button = UIButton()
-//        button.frame = CGRect(x: loginTextField.frame.width - 28 - 14, y: 7, width: 28, height: 28)
-//        button.addSubview(UIImageView(image: #imageLiteral(resourceName: "loginIcon")))
-//        button.addTarget(self, action: #selector(loginToAccount), for: .touchUpInside)
-//        return button
-//    }()
-    var video = AVCaptureVideoPreviewLayer()
-    let session = AVCaptureSession()
     var cokkies: [HTTPCookie] = []
     
     @IBOutlet var logoImage: UIImageView!
@@ -33,46 +24,26 @@ class SignInVC: UIViewController {
     @IBOutlet var payByQRCodeButton: UIButton!
     @IBOutlet var telegramButton: UIButton!
     @IBOutlet var passwordRecoveryButton: UIButton!
+    @IBOutlet var orView: UIView!
+    @IBOutlet var loginView: UIView!
+    @IBOutlet var passwordView: UIView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
         
         AVCaptureDevice.requestAccess(for: .video) { (granted) in
-            self.setupVideo()
+            //self.setupVideo()
         }
+        
+        orView.backgroundColor = .white
         setupLabels()
         setupButtons()
         setupTF()
+        setupCustomViews()
         view.backgroundColor = UIColor().setupBackgroundGray()
     }
     
-    // MARK: - QR code scan logic
-    
-    func setupVideo() {
-        let captureDevice = AVCaptureDevice.default(for: AVMediaType.video)
-        do {
-            let input = try AVCaptureDeviceInput(device: captureDevice!)
-            session.addInput(input)
-        } catch {
-            fatalError(error.localizedDescription)
-        }
-        let output = AVCaptureMetadataOutput()
-        session.addOutput(output)
-        
-        output.setMetadataObjectsDelegate(self, queue: DispatchQueue.main)
-        output.metadataObjectTypes = [AVMetadataObject.ObjectType.qr]
-
-        video = AVCaptureVideoPreviewLayer(session: session)
-        
-        video.frame = view.layer.bounds
-    }
-    
-    func startRunning() {
-        view.layer.addSublayer(video)
-        session.startRunning()
-    }
-    
-    //MARK: - SetupViews
+    //MARK: - Views Prep
     
     private func setupLabels() {
         isAccountLabel.textColor = UIColor().setupCustomLightGray()
@@ -92,25 +63,33 @@ class SignInVC: UIViewController {
     private func setupTF() {
         loginTextField.backgroundColor = UIColor().setupPaleBlue()
         loginTextField.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
-//        loginTextField.addSubview(nextStepButton)
         passwordTF.setupTF()
         passwordTF.isHidden = true
+    }
+    
+    private func setupCustomViews() {
+        loginView.viewForTextField()
+        
+        passwordView.viewForTextField()
+        passwordView.isHidden = true
     }
     
     //MARK: - IBActions
     
     @IBAction func scanQRCode(_ sender: UIButton) {
-        startRunning()
+        //startRunning()
     }
     
     @IBAction func nextStep(_ sender: UIButton) {
+        nextStepButton.isHidden = true
         loginButton.isHidden = false
         passwordTF.isHidden = false
         passwordRecoveryButton.isHidden = false
+        passwordView.isHidden = false
+        passwordTF.becomeFirstResponder()
     }
     
-    @IBAction func unwindSegueFromRecovery(segue: UIStoryboardSegue) {
-    }
+    @IBAction func unwindSegueFromRecovery(segue: UIStoryboardSegue) {}
     
     @IBAction func goToTelegramBot() {
         guard let url = URL(string: "https://t.me/arseniy_kabinet_bot/") else { return }
@@ -132,15 +111,12 @@ class SignInVC: UIViewController {
             let mainVC = MainVC()
             mainVC.cookies = cookies
             self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
-            //self.activityIndicator.stopAnimating()
         }, completion403: {
             let alert = UIAlertController(title: "Неверный логин или пароль", message: "", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
             alert.addAction(okAction)
             self.present(alert, animated: true)
         })
-        
-        //enterButton.setTitle("Войти", for: .normal)
     }
     
     //MARK: - Navigation
@@ -156,13 +132,6 @@ class SignInVC: UIViewController {
             dvc.cookies = cokkies
         }
     }
-    
-//    @objc private func loginToAccount() {
-//        //performSegue(withIdentifier: "toEnterPasswordSegue", sender: nil)
-//        loginButton.isHidden = false
-//        passwordTF.isHidden = false
-//        passwordRecoveryButton.isHidden = false
-//    }
 }
 
 extension SignInVC: UITextFieldDelegate {
@@ -179,32 +148,8 @@ extension SignInVC: UITextFieldDelegate {
         } else {
             nextStepButton.isEnabled = true
             nextStepButton.alpha = 1
-            loginTextField.backgroundColor = .white
+            loginTextField.backgroundColor = UIColor().setupPaleBlue()
         }
     }
-}
-
-extension SignInVC: AVCaptureMetadataOutputObjectsDelegate {
-    
-    func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
-        guard metadataObjects.count > 0 else { return }
-        if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
-            if object.type == AVMetadataObject.ObjectType.qr {
-                NetworkManager.linkFromQRCode(QRCode: object.stringValue ?? "") { (bankUrl) in
-                    self.view.layer.sublayers?.removeLast()
-                    guard let url = URL(string: bankUrl as! String) else { return }
-                    UIApplication.shared.open(url)
-                } completion404: {
-                    let alert = UIAlertController(title: "По данному QR коду невозможно произвести оплата", message: object.stringValue, preferredStyle: .alert)
-                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
-                        self.view.layer.sublayers?.removeLast()
-                    }
-                    alert.addAction(cancel)
-                    self.present(alert, animated: true, completion: nil)
-                }
-            }
-        }
-    }
-    
 }
 

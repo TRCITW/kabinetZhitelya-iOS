@@ -26,10 +26,10 @@ class NetworkManager {
                 if statusCode == 201 {
                     if let headerFields = response.response?.allHeaderFields as? [String: String], let URL = response.request?.url {
                         let cookies = HTTPCookie.cookies(withResponseHeaderFields: headerFields, for: URL)
-                        let token = UserDefaults.standard.setValue("1", forKey: "token")
+                        UserDefaults.standard.setValue("1", forKey: "token")
                         completion201(cookies)
                     }
-                } else if statusCode == 404 {
+                } else if statusCode == 403 {
                     completion403()
                 }
             case .failure(let error):
@@ -49,14 +49,13 @@ class NetworkManager {
         
         AF.request(request).responseJSON { (response) in
             switch response.result {
-            case .success(let value):
+            case .success(_):
                 let statusCode = response.response?.statusCode
                 if statusCode == 201 {
                     completion201()
                 } else if statusCode == 406 {
                     completion406()
                 }
-                print(value)
             case .failure(let error):
                 print(error.localizedDescription)
             }
@@ -98,10 +97,9 @@ class NetworkManager {
         request.setValue("application/json", forHTTPHeaderField: "Accept")
         
         AF.request(request).responseJSON { (response) in
-            print(response.response?.statusCode ?? "empty")
+            let statusCode = response.response?.statusCode
             switch response.result {
             case .success(let value):
-                let statusCode = response.response?.statusCode
                 if statusCode == 200 {
                     let response = value as? [String: Any]
                     let url = response!["bank_url"]!
@@ -110,6 +108,7 @@ class NetworkManager {
                     completion404()
                 }
             case .failure(let error):
+                completion404()
                 print("Error is: \(error.localizedDescription)")
             }
         }

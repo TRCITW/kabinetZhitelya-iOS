@@ -18,14 +18,14 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="logo" translatesAutoresizingMaskIntoConstraints="NO" id="O2x-Uo-Z5R">
-                                <rect key="frame" x="107" y="294" width="200" height="200"/>
+                                <rect key="frame" x="107" y="318" width="200" height="200"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="35x-dR-aXD"/>
                                     <constraint firstAttribute="height" constant="200" id="D1r-DF-7et"/>
                                 </constraints>
                             </imageView>
                             <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="кабинет-жителя.рф" translatesAutoresizingMaskIntoConstraints="NO" id="LmJ-MI-R9h">
-                                <rect key="frame" x="82" y="532" width="250" height="40"/>
+                                <rect key="frame" x="82" y="556" width="250" height="40"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="40" id="XdG-fj-3AR"/>
                                     <constraint firstAttribute="width" constant="250" id="uad-5w-wRL"/>
@@ -35,8 +35,8 @@
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
+                            <constraint firstItem="O2x-Uo-Z5R" firstAttribute="centerY" secondItem="Ze5-6b-2t3" secondAttribute="centerY" constant="-30" id="F5X-dA-erY"/>
                             <constraint firstItem="O2x-Uo-Z5R" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="GCN-SP-EeD"/>
-                            <constraint firstItem="O2x-Uo-Z5R" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="250" id="MbC-Aw-7bp"/>
                             <constraint firstItem="LmJ-MI-R9h" firstAttribute="centerX" secondItem="Ze5-6b-2t3" secondAttribute="centerX" id="NHZ-ct-3bn"/>
                             <constraint firstItem="LmJ-MI-R9h" firstAttribute="top" secondItem="O2x-Uo-Z5R" secondAttribute="bottom" constant="38" id="Va1-IJ-Rkf"/>
                         </constraints>
@@ -49,7 +49,7 @@
     </scenes>
     <resources>
         <image name="logo" width="102" height="102"/>
-        <image name="кабинет-жителя.рф" width="502" height="49"/>
+        <image name="кабинет-жителя.рф" width="167.33332824707031" height="16.333333969116211"/>
         <systemColor name="systemBackgroundColor">
             <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>
