@@ -20,12 +20,14 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
         view.backgroundColor = .white
         checkloginStatus()
         setupWebView()
+        
     }
     
     private func setupWebView() {
         
         let webView = WKWebView()
         webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        
         
         let url = URL(string: Constants.baseUrl)
         let request = URLRequest(url: url!)
@@ -40,6 +42,7 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
         webView.navigationDelegate = self
         
         view.addSubview(webView)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
     }
     
     
@@ -52,21 +55,29 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
             }
         }
     }
+    
+    override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        if let key = change?[NSKeyValueChangeKey.newKey] {
+            print(key)
+        }
+    }
 }
 
 extension MainVC {
     
-    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
-        decisionHandler(.allow)
-        print(webView.url)
-        guard let url = webView.url?.absoluteString else { return }
-        if url == "https://lk2.eis24.me/#/main/dashboard/" {
-            UserDefaults.standard.setValue("", forKey: "token")
-            DispatchQueue.main.async {
-                let storyboard = UIStoryboard(name: "Main", bundle: nil)
-                let loginScreen = storyboard.instantiateViewController(withIdentifier: "SignInVC")
-                self.present(loginScreen, animated: true)
-            }
-        }
-    }
+//    func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+//        decisionHandler(.allow)
+//        print(webView.url)
+//        guard let url = webView.url?.absoluteString else { return }
+//        if url.contains("#/auth/") {
+//            UserDefaults.standard.setValue("", forKey: "token")
+//            DispatchQueue.main.async {
+//                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+//                let loginScreen = storyboard.instantiateViewController(withIdentifier: "SignInVC")
+//                self.present(loginScreen, animated: true)
+//            }
+//        } else {
+//            print("Nothing")
+//        }
+//    }
 }
