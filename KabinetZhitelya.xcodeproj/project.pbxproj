@@ -29,7 +29,6 @@
 		E195262125FF50FC0008E36B /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195262025FF50FC0008E36B /* UIView + Extension.swift */; };
 		E1A5BB7125FCACAA00F7B273 /* ScanQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */; };
 		E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */; };
-		E1D19FB625F93EDF00CB508D /* ScanQRCode + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1D19FB525F93EDF00CB508D /* ScanQRCode + Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -58,7 +57,6 @@
 		E195262025FF50FC0008E36B /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeVC.swift; sourceTree = "<group>"; };
 		E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryVC.swift; sourceTree = "<group>"; };
-		E1D19FB525F93EDF00CB508D /* ScanQRCode + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "ScanQRCode + Extension.swift"; sourceTree = "<group>"; };
 		E2B319E9892B2E22AE264F67 /* Pods-KabinetZhitelya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.release.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -185,7 +183,6 @@
 			isa = PBXGroup;
 			children = (
 				DCB9416925EFB13D006DBC3D /* UIKit */,
-				E1D19FB525F93EDF00CB508D /* ScanQRCode + Extension.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -321,7 +318,6 @@
 			files = (
 				DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */,
 				E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */,
-				E1D19FB625F93EDF00CB508D /* ScanQRCode + Extension.swift in Sources */,
 				DC3B623225EFF44F0064E457 /* Constants.swift in Sources */,
 				DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */,
 				E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */,
@@ -484,7 +480,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -508,7 +504,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 18;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";

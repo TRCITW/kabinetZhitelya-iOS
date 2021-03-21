@@ -27,6 +27,7 @@ class SignInVC: UIViewController {
     @IBOutlet var orView: UIView!
     @IBOutlet var loginView: UIView!
     @IBOutlet var passwordView: UIView!
+    @IBOutlet var loginActivityIndicator: UIActivityIndicatorView!
 
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -35,12 +36,15 @@ class SignInVC: UIViewController {
             //self.setupVideo()
         }
         
+        loginActivityIndicator.isHidden = true
         orView.backgroundColor = .white
         setupLabels()
         setupButtons()
         setupTF()
         setupCustomViews()
         view.backgroundColor = UIColor().setupBackgroundGray()
+        print(view.bounds)
+        print(view.frame.height)
     }
     
     //MARK: - Views Prep
@@ -55,7 +59,7 @@ class SignInVC: UIViewController {
         passwordRecoveryButton.isHidden = true
         nextStepButton.isEnabled = false
         nextStepButton.alpha = 0.5
-        payByQRCodeButton.setupWhiteButton(title: "Оплата по QR")
+        payByQRCodeButton.setupWhiteButton(title: " Оплата по QR-коду")
         createAccountButton.setTitleColor(UIColor().setupCustomBlue(), for: .normal)
         telegramButton.setupWhiteButton(title: "Телеграм бот")
     }
@@ -97,6 +101,9 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func login(_ sender: UIButton) {
+        loginActivityIndicator.isHidden = false
+        loginActivityIndicator.startAnimating()
+        loginButton.isHidden = true
         guard
             let username = loginTextField.text,
             let password = passwordTF.text
@@ -107,7 +114,6 @@ class SignInVC: UIViewController {
         
         NetworkManager.signIn(body: credentials, completion201: { (cookies) in
             self.cokkies = cookies
-            print("Cookies on enterpass Screen is: \(self.cokkies)")
             let mainVC = MainVC()
             mainVC.cookies = cookies
             self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
@@ -115,7 +121,10 @@ class SignInVC: UIViewController {
             let alert = UIAlertController(title: "Неверный логин или пароль", message: "", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
             alert.addAction(okAction)
+            
             self.present(alert, animated: true)
+            self.loginButton.isHidden = false
+            self.loginActivityIndicator.stopAnimating()
         })
     }
     

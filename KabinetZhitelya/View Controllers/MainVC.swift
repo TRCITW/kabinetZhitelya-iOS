@@ -17,7 +17,7 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
            
-        view.backgroundColor = .white
+        //view.backgroundColor = .white
         checkloginStatus()
         setupWebView()
         
@@ -25,7 +25,9 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     private func setupWebView() {
         
-        let webView = WKWebView()
+        let config = WKWebViewConfiguration()
+        
+        let webView = WKWebView(frame: .zero, configuration: config)
         webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
         
@@ -56,9 +58,16 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
         }
     }
     
-    override class func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        if let key = change?[NSKeyValueChangeKey.newKey] {
-            print(key)
+    override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
+        
+        let key = "\(change![NSKeyValueChangeKey.newKey] ?? "")"
+        if key == "https://lk2.eis24.me/#/auth/login/" {
+            UserDefaults.standard.setValue("", forKey: "token")
+            DispatchQueue.main.async {
+                let storyboard = UIStoryboard(name: "Main", bundle: nil)
+                let loginScreen = storyboard.instantiateViewController(withIdentifier: "SignInVC")
+                self.present(loginScreen, animated: true)
+            }
         }
     }
 }

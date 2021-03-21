@@ -38,7 +38,8 @@ class ScanQRCodeVC: UIViewController {
 
         video = AVCaptureVideoPreviewLayer(session: session)
         
-        video.frame = view.layer.bounds
+        video.frame = CGRect(x: 0, y: 0, width: view.frame.width, height: view.frame.height)
+        video.videoGravity = AVLayerVideoGravity.resizeAspectFill
     }
     
     func startRunning() {
@@ -51,7 +52,6 @@ extension ScanQRCodeVC: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
         guard metadataObjects.count > 0 else { return }
-        print(metadataObjects.first as? AVMetadataMachineReadableCodeObject)
         session.stopRunning()
         activityIndicator.startAnimating()
         if let object = metadataObjects.first as? AVMetadataMachineReadableCodeObject {
