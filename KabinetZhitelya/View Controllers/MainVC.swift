@@ -45,6 +45,8 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
         
         view.addSubview(webView)
         webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
+        
+        
     }
     
     
@@ -61,7 +63,8 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
         
         let key = "\(change![NSKeyValueChangeKey.newKey] ?? "")"
-        if key == "https://lk2.eis24.me/#/auth/login/" {
+        print(key)
+        if key == "https://lk2.eis24.me/#/auth/login/123123123123" {
             UserDefaults.standard.setValue("", forKey: "token")
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)

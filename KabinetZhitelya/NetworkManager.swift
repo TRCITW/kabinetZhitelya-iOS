@@ -75,7 +75,7 @@ class NetworkManager {
             switch response.result {
             case .success(_):
                 let statusCode = response.response?.statusCode
-                if statusCode == 201 {
+                if statusCode == 200 || statusCode == 201 {
                     completion201()
                 } else if statusCode == 400 {
                     completion400()

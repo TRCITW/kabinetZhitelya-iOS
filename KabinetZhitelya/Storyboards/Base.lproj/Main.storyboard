@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4VY-nu-mBY">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jVX-Oq-Sh8">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -257,7 +257,7 @@
                         <outlet property="passwordView" destination="biq-ew-jV8" id="Z67-Il-Hey"/>
                         <outlet property="payByQRCodeButton" destination="5pz-Li-Adg" id="D2T-8X-sbJ"/>
                         <outlet property="telegramButton" destination="wyX-Bt-TqA" id="9NJ-ck-PAs"/>
-                        <segue destination="4VY-nu-mBY" kind="show" identifier="toMainVCSegue" id="6s6-fm-joF"/>
+                        <segue destination="jVX-Oq-Sh8" kind="show" identifier="toMainVCSegue" id="vdW-Bl-vRF"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -571,31 +571,17 @@
         <!--Главная-->
         <scene sceneID="ING-Xo-Qx6">
             <objects>
-                <viewController id="ADP-ft-fo3" customClass="MainVC" customModule="KabinetZhitelya" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController modalPresentationStyle="fullScreen" id="ADP-ft-fo3" customClass="MainVC" customModule="KabinetZhitelya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="bN5-6a-4bd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <subviews>
-                            <wkWebView contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="EK0-pi-Dwb">
-                                <rect key="frame" x="0.0" y="88" width="414" height="725"/>
-                                <color key="backgroundColor" red="0.36078431370000003" green="0.38823529410000002" blue="0.4039215686" alpha="1" colorSpace="custom" customColorSpace="sRGB"/>
-                                <wkWebViewConfiguration key="configuration">
-                                    <audiovisualMediaTypes key="mediaTypesRequiringUserActionForPlayback" none="YES"/>
-                                    <wkPreferences key="preferences"/>
-                                </wkWebViewConfiguration>
-                            </wkWebView>
-                        </subviews>
                         <viewLayoutGuide key="safeArea" id="L3m-P5-hKe"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                        <constraints>
-                            <constraint firstItem="EK0-pi-Dwb" firstAttribute="top" secondItem="L3m-P5-hKe" secondAttribute="top" id="43H-lp-2Tw"/>
-                            <constraint firstItem="L3m-P5-hKe" firstAttribute="trailing" secondItem="EK0-pi-Dwb" secondAttribute="trailing" id="QXK-ue-hy8"/>
-                            <constraint firstItem="L3m-P5-hKe" firstAttribute="bottom" secondItem="EK0-pi-Dwb" secondAttribute="bottom" id="TYS-Jj-jnz"/>
-                            <constraint firstItem="EK0-pi-Dwb" firstAttribute="leading" secondItem="L3m-P5-hKe" secondAttribute="leading" id="pBU-h6-O7Z"/>
-                        </constraints>
                     </view>
                     <tabBarItem key="tabBarItem" title="Главная" id="UqZ-7x-qZP"/>
-                    <navigationItem key="navigationItem" id="WT3-kp-5kd"/>
+                    <navigationItem key="navigationItem" id="WT3-kp-5kd">
+                        <barButtonItem key="rightBarButtonItem" title="Item" id="6NG-pA-rBi"/>
+                    </navigationItem>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="xsi-d5-buh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
@@ -604,9 +590,9 @@
         <!--Начисления-->
         <scene sceneID="EDX-R5-ayD">
             <objects>
-                <viewController id="lAK-Bz-q63" sceneMemberID="viewController">
+                <viewController id="lAK-Bz-q63" customClass="AccrualsVC" customModule="KabinetZhitelya" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="Rpi-cD-09o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="ttJ-zW-pmn"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -622,7 +608,7 @@
             <objects>
                 <viewController id="efP-ou-pEd" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="owV-RR-ZZv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
+                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <viewLayoutGuide key="safeArea" id="UGR-nU-rfb"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
@@ -763,7 +749,7 @@
         <!--Tab Bar Controller-->
         <scene sceneID="mrF-yh-Bgy">
             <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" id="aqC-97-den" sceneMemberID="viewController">
+                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="aqC-97-den" sceneMemberID="viewController">
                     <toolbarItems/>
                     <navigationItem key="navigationItem" id="HTG-h9-qr7"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZEZ-qF-MBQ">
