@@ -8,10 +8,12 @@
 
 import UIKit
 import AVFoundation
+import CoreLocation
 
 class SignInVC: UIViewController {
     
     var cokkies: [HTTPCookie] = []
+    var locationManager = CLLocationManager()
     
     @IBOutlet var logoImage: UIImageView!
     @IBOutlet var loginTextField: UITextField!
@@ -43,8 +45,8 @@ class SignInVC: UIViewController {
         setupTF()
         setupCustomViews()
         view.backgroundColor = UIColor().setupBackgroundGray()
-        print(view.bounds)
-        print(view.frame.height)
+        locationManager.requestWhenInUseAuthorization()
+        locationManager.startUpdatingLocation()
     }
     
     //MARK: - Views Prep

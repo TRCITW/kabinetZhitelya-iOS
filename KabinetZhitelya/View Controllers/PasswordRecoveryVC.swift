@@ -33,7 +33,7 @@ class PasswordRecoveryVC: UIViewController {
         let body: [String: Any] = ["username": username]
         NetworkManager.requestRecovery(body: body) {
             self.performSegue(withIdentifier: "recoverySuccess", sender: nil)
-        } completion400: {
+        } completion406: {
             let alert = UIAlertController(title: "Ошибка. Не удалось найти логин", message: "", preferredStyle: .alert)
             let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
             alert.addAction(okAction)

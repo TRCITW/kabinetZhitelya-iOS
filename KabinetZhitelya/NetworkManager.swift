@@ -19,6 +19,9 @@ class NetworkManager {
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
+        request.setValue("ios", forHTTPHeaderField: "os")
+        
         AF.request(request).responseJSON { (response) in
             switch response.result {
             case .success(_):
@@ -46,6 +49,8 @@ class NetworkManager {
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
+        request.setValue("ios", forHTTPHeaderField: "os")
         
         AF.request(request).responseJSON { (response) in
             switch response.result {
@@ -62,7 +67,7 @@ class NetworkManager {
         }
     }
     
-    static func requestRecovery(body: [String: Any], completion201: @escaping () -> (), completion400: @escaping () -> ()) {
+    static func requestRecovery(body: [String: Any], completion201: @escaping () -> (), completion406: @escaping () -> ()) {
         guard let url = URL(string: Constants.baseUrl + "api/v4/registration/reset_password/") else { return }
         var request = URLRequest(url: url)
         let httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
@@ -70,6 +75,8 @@ class NetworkManager {
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
+        request.setValue("ios", forHTTPHeaderField: "os")
         
         AF.request(request).responseJSON { (response) in
             switch response.result {
@@ -77,8 +84,8 @@ class NetworkManager {
                 let statusCode = response.response?.statusCode
                 if statusCode == 200 || statusCode == 201 {
                     completion201()
-                } else if statusCode == 400 {
-                    completion400()
+                } else if statusCode == 406 {
+                    completion406()
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -95,6 +102,8 @@ class NetworkManager {
         request.method = .post
         request.setValue("application/json", forHTTPHeaderField: "Content-Type")
         request.setValue("application/json", forHTTPHeaderField: "Accept")
+        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
+        request.setValue("ios", forHTTPHeaderField: "os")
         
         AF.request(request).responseJSON { (response) in
             let statusCode = response.response?.statusCode

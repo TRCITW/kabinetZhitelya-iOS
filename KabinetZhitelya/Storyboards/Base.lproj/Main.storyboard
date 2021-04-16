@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="jVX-Oq-Sh8">
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="17701" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES" initialViewController="4VY-nu-mBY">
     <device id="retina6_1" orientation="portrait" appearance="light"/>
     <dependencies>
         <deployment identifier="iOS"/>
@@ -257,7 +257,7 @@
                         <outlet property="passwordView" destination="biq-ew-jV8" id="Z67-Il-Hey"/>
                         <outlet property="payByQRCodeButton" destination="5pz-Li-Adg" id="D2T-8X-sbJ"/>
                         <outlet property="telegramButton" destination="wyX-Bt-TqA" id="9NJ-ck-PAs"/>
-                        <segue destination="jVX-Oq-Sh8" kind="show" identifier="toMainVCSegue" id="vdW-Bl-vRF"/>
+                        <segue destination="4VY-nu-mBY" kind="show" identifier="toMainVCSegue" id="vWf-r7-Ck2"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
@@ -429,7 +429,7 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Восстановления пароля  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-gb-4Iy">
+                            <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Восстановление пароля  " textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="NlP-gb-4Iy">
                                 <rect key="frame" x="83.5" y="137" width="247" height="24"/>
                                 <fontDescription key="fontDescription" type="boldSystem" pointSize="20"/>
                                 <color key="textColor" red="0.01176470588" green="0.4039215686" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
@@ -568,57 +568,6 @@
             </objects>
             <point key="canvasLocation" x="2916" y="139"/>
         </scene>
-        <!--Главная-->
-        <scene sceneID="ING-Xo-Qx6">
-            <objects>
-                <viewController modalPresentationStyle="fullScreen" id="ADP-ft-fo3" customClass="MainVC" customModule="KabinetZhitelya" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="bN5-6a-4bd">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="L3m-P5-hKe"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Главная" id="UqZ-7x-qZP"/>
-                    <navigationItem key="navigationItem" id="WT3-kp-5kd">
-                        <barButtonItem key="rightBarButtonItem" title="Item" id="6NG-pA-rBi"/>
-                    </navigationItem>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="xsi-d5-buh" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1951" y="1669"/>
-        </scene>
-        <!--Начисления-->
-        <scene sceneID="EDX-R5-ayD">
-            <objects>
-                <viewController id="lAK-Bz-q63" customClass="AccrualsVC" customModule="KabinetZhitelya" customModuleProvider="target" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="Rpi-cD-09o">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="ttJ-zW-pmn"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Начисления" id="lco-bh-9eA"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="DP9-cD-7hb" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2861" y="1681"/>
-        </scene>
-        <!--Счетчики-->
-        <scene sceneID="yML-oV-rn0">
-            <objects>
-                <viewController id="efP-ou-pEd" sceneMemberID="viewController">
-                    <view key="view" contentMode="scaleToFill" id="owV-RR-ZZv">
-                        <rect key="frame" x="0.0" y="0.0" width="414" height="842"/>
-                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
-                        <viewLayoutGuide key="safeArea" id="UGR-nU-rfb"/>
-                        <color key="backgroundColor" systemColor="systemBackgroundColor"/>
-                    </view>
-                    <tabBarItem key="tabBarItem" title="Счетчики" id="FEj-zq-h7h"/>
-                </viewController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="Sti-0Q-mcQ" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="3778" y="1681"/>
-        </scene>
         <!--MainVC-->
         <scene sceneID="hgS-UF-XZV">
             <objects>
@@ -726,46 +675,6 @@
                 <exit id="kYK-m2-SI6" userLabel="Exit" sceneMemberID="exit"/>
             </objects>
             <point key="canvasLocation" x="980" y="1037"/>
-        </scene>
-        <!--Navigation Controller-->
-        <scene sceneID="Dyb-Vk-2Dx">
-            <objects>
-                <navigationController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="jVX-Oq-Sh8" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="Tyf-RR-wpS"/>
-                    <navigationBar key="navigationBar" contentMode="scaleToFill" id="5fA-aN-tic">
-                        <rect key="frame" x="0.0" y="44" width="414" height="44"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                    </navigationBar>
-                    <nil name="viewControllers"/>
-                    <connections>
-                        <segue destination="aqC-97-den" kind="relationship" relationship="rootViewController" id="Knf-bq-sZN"/>
-                    </connections>
-                </navigationController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="ags-IU-swl" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="1950.7246376811595" y="924.77678571428567"/>
-        </scene>
-        <!--Tab Bar Controller-->
-        <scene sceneID="mrF-yh-Bgy">
-            <objects>
-                <tabBarController automaticallyAdjustsScrollViewInsets="NO" modalPresentationStyle="fullScreen" id="aqC-97-den" sceneMemberID="viewController">
-                    <toolbarItems/>
-                    <navigationItem key="navigationItem" id="HTG-h9-qr7"/>
-                    <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="ZEZ-qF-MBQ">
-                        <rect key="frame" x="0.0" y="0.0" width="1000" height="1000"/>
-                        <autoresizingMask key="autoresizingMask"/>
-                        <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
-                    </tabBar>
-                    <connections>
-                        <segue destination="ADP-ft-fo3" kind="relationship" relationship="viewControllers" id="Vxi-4Q-8f5"/>
-                        <segue destination="lAK-Bz-q63" kind="relationship" relationship="viewControllers" id="3BT-hj-6dm"/>
-                        <segue destination="efP-ou-pEd" kind="relationship" relationship="viewControllers" id="Xt0-LQ-1gE"/>
-                    </connections>
-                </tabBarController>
-                <placeholder placeholderIdentifier="IBFirstResponder" id="5uR-2b-7Wp" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
-            </objects>
-            <point key="canvasLocation" x="2860.8695652173915" y="924.77678571428567"/>
         </scene>
     </scenes>
     <resources>

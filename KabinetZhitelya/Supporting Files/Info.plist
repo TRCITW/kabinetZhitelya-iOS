@@ -23,7 +23,16 @@
 	<key>LSRequiresIPhoneOS</key>
 	<true/>
 	<key>NSCameraUsageDescription</key>
-	<string>Доступ к камере необходим для того, чтобы прикладывать фотографии к заявкам и к обращениям, оплаты по QR коду</string>
+	<string>Камера используется для подачи заявок и обращений, оплаты по QR-коду, передачи фото в управляющую организацию
+Камера используется для подачи заявок и обращений, оплаты по QR-коду, передачи фото в управляющую организацию</string>
+	<key>NSLocationAlwaysAndWhenInUseUsageDescription</key>
+	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
+	<key>NSLocationAlwaysUsageDescription</key>
+	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
+	<key>NSLocationUsageDescription</key>
+	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
+	<key>NSLocationWhenInUseUsageDescription</key>
+	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>

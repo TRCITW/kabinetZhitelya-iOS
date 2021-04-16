@@ -60,6 +60,8 @@
 		E197D10F2607ABAD00D21248 /* AccrualsVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AccrualsVC.swift; sourceTree = "<group>"; };
 		E197D1122607ABC100D21248 /* MetersVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MetersVC.swift; sourceTree = "<group>"; };
 		E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeVC.swift; sourceTree = "<group>"; };
+		E1C051EB261DB5D3004A61DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
+		E1C051EC261DB5D3004A61DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryVC.swift; sourceTree = "<group>"; };
 		E2B319E9892B2E22AE264F67 /* Pods-KabinetZhitelya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.release.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -172,17 +174,9 @@
 		DC3C9C5F25EFADCF0047F13F /* Servicies */ = {
 			isa = PBXGroup;
 			children = (
-				DCB9416525EFAE7F006DBC3D /* Models */,
 				DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */,
 			);
 			name = Servicies;
-			sourceTree = "<group>";
-		};
-		DCB9416525EFAE7F006DBC3D /* Models */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Models;
 			sourceTree = "<group>";
 		};
 		DCB9416825EFB136006DBC3D /* Extensions */ = {
@@ -251,6 +245,7 @@
 			knownRegions = (
 				en,
 				Base,
+				ru,
 			);
 			mainGroup = DC3C9C3925EFA7540047F13F;
 			productRefGroup = DC3C9C4325EFA7540047F13F /* Products */;
@@ -351,6 +346,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DC3C9C4C25EFA7540047F13F /* Base */,
+				E1C051EB261DB5D3004A61DD /* ru */,
 			);
 			name = Main.storyboard;
 			sourceTree = "<group>";
@@ -359,6 +355,7 @@
 			isa = PBXVariantGroup;
 			children = (
 				DC3C9C5125EFA7570047F13F /* Base */,
+				E1C051EC261DB5D3004A61DD /* ru */,
 			);
 			name = LaunchScreen.storyboard;
 			sourceTree = "<group>";
@@ -370,6 +367,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -431,6 +429,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
+				CLANG_ANALYZER_LOCALIZABILITY_NONLOCALIZED = YES;
 				CLANG_ANALYZER_NONNULL = YES;
 				CLANG_ANALYZER_NUMBER_OBJECT_CONVERSION = YES_AGGRESSIVE;
 				CLANG_CXX_LANGUAGE_STANDARD = "gnu++14";
@@ -488,7 +487,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -497,7 +496,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kabinet-zhitelya.rf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
@@ -512,7 +511,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 1;
+				CURRENT_PROJECT_VERSION = 3;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -521,7 +520,7 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
-				MARKETING_VERSION = 2.0.1;
+				MARKETING_VERSION = 2.0.2;
 				PRODUCT_BUNDLE_IDENTIFIER = "com.kabinet-zhitelya.rf";
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				PROVISIONING_PROFILE_SPECIFIER = "";
