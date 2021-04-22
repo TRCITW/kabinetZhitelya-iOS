@@ -26,30 +26,25 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
     
     private func setupWebView() {
         
-        let config = WKWebViewConfiguration()
-//        webViewConfiguration.userContentController.add(self, name: "openDocument")
-//        webViewConfiguration.userContentController.add(self, name: "jsError")
-        
         self.webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
         self.webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         
-        
-        let url = URL(string: Constants.baseUrl)
-        let request = URLRequest(url: url!)
-        for cookie in cookies {
-            self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
-        }
-        
-        //webView = WKWebView(frame: .zero, configuration: config)
-        
-        self.webView.load(request)
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
         
         view.addSubview(webView)
         self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
         
-        
+        loadWebPage(url: Constants.baseUrl)
+    }
+    
+    private func loadWebPage(url: String) {
+        let url = URL(string: url)
+        let request = URLRequest(url: url!)
+        for cookie in cookies {
+            self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
+        }
+        self.webView.load(request)
     }
     
     
@@ -79,23 +74,27 @@ class MainVC: UIViewController, WKUIDelegate, WKNavigationDelegate {
 }
 
 extension MainVC {
-//    func webView(_ webView: WKWebView, decidePolicyFor navigationResponse: WKNavigationResponse, decisionHandler: @escaping (WKNavigationResponsePolicy) -> Void) {
-//        print(navigationResponse.response.url?.appendingPathComponent(navigationResponse.response.suggestedFilename!))
-//        print(navigationResponse.response)
-//        decisionHandler(.allow)
-//
-//    }
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
-        print(navigationAction.request)
-        guard let url = URL(string: "https://lk2.eis24.me/40f0a9c5-20c6-431c-acb8-256c4ca63ba6") else { return }
-        let documentsUrl:URL =  FileManager.default.urls(for: .documentDirectory, in: .userDomainMask).first!
-        let destinationFileUrl = documentsUrl.appendingPathComponent("downloadedFile.jpg")
-        do {
-            try FileManager.default.copyItem(at: url, to: destinationFileUrl)
-        } catch let error as NSError{
-            print(error.localizedDescription)
-        }
-    }
+        let url = "\(navigationAction.request)"
+        if url.contains("download_file") {
+            
+            NetworkManager.downloadFile(url: url) { (result) in
+                switch result {
+                case .success(let path):
+                    self.showAlert(title: "Файл сохранён", message: "Путь к файлу: \(path)") {
+                        self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+                    }
+                case .failure(let error):
+                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+                    self.showAlert(title: "Ошибка сохранения", message: "Данный файл уже сохранён")
+                }
+                return
+            } // NetworkManager
+            
+        } // if-else
+        
+    } // webView func
+    
 }

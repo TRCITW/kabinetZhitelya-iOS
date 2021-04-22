@@ -123,6 +123,25 @@ class NetworkManager {
         }
     }
     
+    static func downloadFile(url: String, completion: @escaping (Result<String, Error>) -> ()) {
+        guard let url = URL(string: url) else { return }
+        
+        let headers: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/json"),
+                                      HTTPHeader(name: "Accept", value: "application/json")]
+        
+        let directory = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .allDomainsMask, options: [])
+        
+        AF.download(url, method: .get, headers: headers, to: directory).response { (response) in
+            switch response.result {
+            
+            case .success(let value):
+                completion(.success("\(value!)"))
+            case .failure(let error):
+                completion(.failure(DownloadErrors.doubleFile))
+            }
+        }
+        
+    }
     
-    
+
 }

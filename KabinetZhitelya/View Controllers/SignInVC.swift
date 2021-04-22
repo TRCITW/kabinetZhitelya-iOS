@@ -49,7 +49,7 @@ class SignInVC: UIViewController {
         locationManager.startUpdatingLocation()
     }
     
-    //MARK: - Views Prep
+//MARK: - Views Prep
     
     private func setupLabels() {
         isAccountLabel.textColor = UIColor().setupCustomLightGray()
@@ -80,7 +80,7 @@ class SignInVC: UIViewController {
         passwordView.isHidden = true
     }
     
-    //MARK: - IBActions
+//MARK: - IBActions
     
     @IBAction func scanQRCode(_ sender: UIButton) {
         //startRunning()
@@ -130,7 +130,7 @@ class SignInVC: UIViewController {
         })
     }
     
-    //MARK: - Navigation
+//MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
         if segue.identifier == "toEnterPasswordSegue" {
@@ -144,6 +144,8 @@ class SignInVC: UIViewController {
         }
     }
 }
+
+// MARK: TextField Delegate
 
 extension SignInVC: UITextFieldDelegate {
     
