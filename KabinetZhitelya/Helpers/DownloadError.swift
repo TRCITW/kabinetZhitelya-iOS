@@ -9,10 +9,8 @@
 import Foundation
 
 enum DownloadErrors {
-
     case serverError
     case doubleFile
-    
 }
 
 extension DownloadErrors: LocalizedError {
@@ -25,3 +23,4 @@ extension DownloadErrors: LocalizedError {
         }
     }
 }
+

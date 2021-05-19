@@ -8,6 +8,7 @@
 
 import UIKit
 import Alamofire
+import PDFKit
 
 class NetworkManager {
     
@@ -123,21 +124,22 @@ class NetworkManager {
         }
     }
     
-    static func downloadFile(url: String, completion: @escaping (Result<String, Error>) -> ()) {
+    static func downloadFile(url: String, completion: @escaping (Result<Data, Error>) -> ()) {
         guard let url = URL(string: url) else { return }
         
-        let headers: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/json"),
-                                      HTTPHeader(name: "Accept", value: "application/json")]
+        let headers: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/pdf")]
         
-        let directory = DownloadRequest.suggestedDownloadDestination(for: .documentDirectory, in: .allDomainsMask, options: [])
-        
-        AF.download(url, method: .get, headers: headers, to: directory).response { (response) in
+        AF.download(url, method: .get, headers: headers).responseData { (response) in
             switch response.result {
-            
-            case .success(let value):
-                completion(.success("\(value!)"))
+            case .success(let data):
+                completion(.success(data))
+                DispatchQueue.main.async {
+//                    let pdf = PDFDocument(data: data)
+//                    print("PDF doc is \(pdf)")
+//                    print("PDF data is \(data)")
+                }
             case .failure(let error):
-                completion(.failure(DownloadErrors.doubleFile))
+                completion(.failure(error))
             }
         }
         

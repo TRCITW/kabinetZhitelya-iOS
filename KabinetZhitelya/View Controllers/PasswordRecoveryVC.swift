@@ -52,6 +52,8 @@ class PasswordRecoveryVC: UIViewController {
 
 }
 
+// MARK: - Text Field Delegate
+
 extension PasswordRecoveryVC: UITextFieldDelegate {
     @objc private func textFieldChanged() {
         if loginTF.text?.isEmpty == true {

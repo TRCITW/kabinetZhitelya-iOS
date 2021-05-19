@@ -16,13 +16,13 @@
 		DC3C9C4D25EFA7540047F13F /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9C4B25EFA7540047F13F /* Main.storyboard */; };
 		DC3C9C4F25EFA7570047F13F /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9C4E25EFA7570047F13F /* Assets.xcassets */; };
 		DC3C9C5225EFA7570047F13F /* LaunchScreen.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = DC3C9C5025EFA7570047F13F /* LaunchScreen.storyboard */; };
-		DCB9416B25EFB16D006DBC3D /* UILabel + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9416A25EFB16D006DBC3D /* UILabel + Extension.swift */; };
 		DCB9416E25EFB17D006DBC3D /* UITextField + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9416D25EFB17D006DBC3D /* UITextField + Extension.swift */; };
 		DCB9417125EFB190006DBC3D /* UIButton + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417025EFB190006DBC3D /* UIButton + Extension.swift */; };
 		DCB9417425EFB19E006DBC3D /* UIColor + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417325EFB19E006DBC3D /* UIColor + Extension.swift */; };
 		DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417625EFB1AA006DBC3D /* UIFont + Extension.swift */; };
 		DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */; };
 		E1022C412631725A00D64C16 /* UIViewController + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = E1022C402631725A00D64C16 /* UIViewController + Extension .swift */; };
+		E13657E52637F8CD00130602 /* qwerty.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13657E42637F8CD00130602 /* qwerty.pdf */; };
 		E157C0AF25F3F607009535D9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E157C0AE25F3F607009535D9 /* Alamofire.framework */; };
 		E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C025F4CEA7009535D9 /* MainVC.swift */; };
 		E157C0C525F4D49A009535D9 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C425F4D49A009535D9 /* SignUpVC.swift */; };
@@ -45,7 +45,6 @@
 		DC3C9C4E25EFA7570047F13F /* Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = Assets.xcassets; sourceTree = "<group>"; };
 		DC3C9C5125EFA7570047F13F /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/LaunchScreen.storyboard; sourceTree = "<group>"; };
 		DC3C9C5325EFA7570047F13F /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		DCB9416A25EFB16D006DBC3D /* UILabel + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UILabel + Extension.swift"; sourceTree = "<group>"; };
 		DCB9416D25EFB17D006DBC3D /* UITextField + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UITextField + Extension.swift"; sourceTree = "<group>"; };
 		DCB9417025EFB190006DBC3D /* UIButton + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIButton + Extension.swift"; sourceTree = "<group>"; };
 		DCB9417325EFB19E006DBC3D /* UIColor + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIColor + Extension.swift"; sourceTree = "<group>"; };
@@ -53,6 +52,7 @@
 		DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0E78583BD3830E900D63C01 /* Pods-KabinetZhitelya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.debug.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.debug.xcconfig"; sourceTree = "<group>"; };
 		E1022C402631725A00D64C16 /* UIViewController + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension .swift"; sourceTree = "<group>"; };
+		E13657E42637F8CD00130602 /* qwerty.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = qwerty.pdf; sourceTree = "<group>"; };
 		E157C0AE25F3F607009535D9 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E157C0C025F4CEA7009535D9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = "KabinetZhitelya/View Controllers/MainVC.swift"; sourceTree = SOURCE_ROOT; };
 		E157C0C425F4D49A009535D9 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -154,6 +154,7 @@
 		DC3C9C5B25EFAD9D0047F13F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
+				E13657E42637F8CD00130602 /* qwerty.pdf */,
 				DC3C9C4E25EFA7570047F13F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -189,7 +190,6 @@
 		DCB9416925EFB13D006DBC3D /* UIKit */ = {
 			isa = PBXGroup;
 			children = (
-				DCB9416A25EFB16D006DBC3D /* UILabel + Extension.swift */,
 				DCB9416D25EFB17D006DBC3D /* UITextField + Extension.swift */,
 				DCB9417025EFB190006DBC3D /* UIButton + Extension.swift */,
 				DCB9417325EFB19E006DBC3D /* UIColor + Extension.swift */,
@@ -272,6 +272,7 @@
 			files = (
 				DC3C9C5225EFA7570047F13F /* LaunchScreen.storyboard in Resources */,
 				DC3C9C4F25EFA7570047F13F /* Assets.xcassets in Resources */,
+				E13657E52637F8CD00130602 /* qwerty.pdf in Resources */,
 				DC3C9C4D25EFA7540047F13F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -337,7 +338,6 @@
 				DC3C9C4A25EFA7540047F13F /* SignInVC.swift in Sources */,
 				DCB9416E25EFB17D006DBC3D /* UITextField + Extension.swift in Sources */,
 				DC3C9C4625EFA7540047F13F /* AppDelegate.swift in Sources */,
-				DCB9416B25EFB16D006DBC3D /* UILabel + Extension.swift in Sources */,
 				E1A5BB7125FCACAA00F7B273 /* ScanQRCodeVC.swift in Sources */,
 				E157C0C525F4D49A009535D9 /* SignUpVC.swift in Sources */,
 				E1EBD0B22631DB4D0012167B /* DownloadError.swift in Sources */,
@@ -495,7 +495,7 @@
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -519,7 +519,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 4;
+				CURRENT_PROJECT_VERSION = 7;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";

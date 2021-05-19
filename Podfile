@@ -6,7 +6,7 @@ target 'KabinetZhitelya' do
   use_frameworks!
 
   # Pods for KabinetZhitela
-  pod 'Alamofire'
+  pod 'Alamofire', '5.4.3'
 
 
 end
