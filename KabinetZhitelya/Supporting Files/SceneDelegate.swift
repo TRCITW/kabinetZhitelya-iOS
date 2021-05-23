@@ -18,7 +18,12 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // If using a storyboard, the `window` property will automatically be initialized and attached to the scene.
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         window?.overrideUserInterfaceStyle = .light
-        guard let _ = (scene as? UIWindowScene) else { return }
+        guard let winScene = (scene as? UIWindowScene) else { return }
+        chechAuthStatus(winScene: winScene)
+    }
+    
+    func chechAuthStatus(winScene: UIWindowScene) {
+        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {

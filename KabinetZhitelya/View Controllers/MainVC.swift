@@ -12,7 +12,7 @@ import PDFKit
 
 class MainVC: UIViewController {
     
-//    let url = "https://www.tutorialspoint.com/swift/swift_tutorial.pdf"
+//    var customUrl = "https://lk2.eis24.me/api/v4/accruals/download_file/?file_id=60a67ba9e79279003117ff56&author=608134dc593a3c0010ac898a"
     var cookies: [HTTPCookie] = []
     let token = UserDefaults.standard.object(forKey: "token")
     var webView: WKWebView!
@@ -23,14 +23,25 @@ class MainVC: UIViewController {
            
         checkloginStatus()
         setupWebView()
-//        downloadFile()
+//        downloadData()
+        Notifications().getFCMToken()
     }
     
-//    private func downloadFile() {
-//        guard let url = URL(string: self.url) else { return }
-//        let downloadSession = URLSession(configuration: .default, delegate: self, delegateQueue: OperationQueue())
-//        let downloadTask = downloadSession.downloadTask(with: url)
-//        downloadTask.resume()
+//    private func downloadData() {
+//        NetworkManager.downloadFile(url: customUrl) { (result) in
+//            switch result {
+//            case .success(let data):
+////                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
+//                print(data)
+//                let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+//                self.present(activityController, animated: true, completion: nil)
+//                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+//            case .failure(let error):
+//                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
+//                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+//                }
+//            }
+//        } // NetworkManager
 //    }
     
     private func setupWebView() {
@@ -87,53 +98,66 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
         let url = "\(navigationAction.request)"
-        if url.contains("files") {
-            NetworkManager.downloadFile(url: url) { (result) in
-                switch result {
-                case .success(let data):
-                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
-                    let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-                    self.present(activityController, animated: true, completion: nil)
-                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-                case .failure(let error):
-                    self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
-                        self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-                    }
-                }
-            } // NetworkManager
-            
-        } // if-else
         
-    } // decidePolicyFor
+        if url.contains("files") && url.contains("requests") {
+            downloadFromRequests(url: url)
+        }
+        
+        if url.contains("download") {
+            downloadFromAddings(url: url)
+        }
+        
+        if url.contains("files") && url.contains("accruals") {
+            downloadFromQuestions(url: url)
+        }
+        
+    }
     
+    private func downloadFromRequests(url: String) {
+        NetworkManager.downloadFile(url: url) { (result) in
+            switch result {
+            case .success(let data):
+                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
+                let activityController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+            case .failure(let error):
+                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
+                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+                }
+            }
+        }
+    }
+    
+    private func downloadFromAddings(url: String) {
+        NetworkManager.downloadFile(url: url) { (result) in
+            switch result {
+            case .success(let data):
+                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
+                let activityController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+            case .failure(let error):
+                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
+                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+                }
+            }
+        }
+    }
+    
+    private func downloadFromQuestions(url: String) {
+        NetworkManager.downloadFile(url: url) { (result) in
+            switch result {
+            case .success(let data):
+                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
+                let activityController = UIActivityViewController(activityItems: [pdf], applicationActivities: nil)
+                self.present(activityController, animated: true, completion: nil)
+                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+            case .failure(let error):
+                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
+                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+                }
+            }
+        }
+    }
 }
-
-//extension MainVC: URLSessionDownloadDelegate {
-//    func urlSession(_ session: URLSession, downloadTask: URLSessionDownloadTask, didFinishDownloadingTo location: URL) {
-//        print("Location is \(location)")
-//        DispatchQueue.main.async {
-//            let pdfDoc = PDFDocument(url: location)
-//            print("PDF Doc is \(pdfDoc)")
-//            let activity = UIActivity()
-//
-////            activity.activityType = .post
-//            let activityController = UIActivityViewController(activityItems: [pdfDoc], applicationActivities: [activity])
-//            self.present(activityController, animated: true, completion: nil)
-//
-//        }
-//        guard let url = downloadTask.originalRequest?.url else { return }
-//        let documentsPath = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)[0]
-//        let destinationURL = documentsPath.appendingPathComponent(url.lastPathComponent)
-//        try? FileManager.default.removeItem(at: destinationURL)
-//        do {
-//            try FileManager.default.copyItem(at: location, to: destinationURL)
-//            let pdfDoc = PDFDocument(url: destinationURL)
-//            let activityController = UIActivityViewController(activityItems: [pdfDoc!], applicationActivities: nil)
-//            DispatchQueue.main.async {
-//                self.present(activityController, animated: true, completion: nil)
-//            }
-//        } catch let error {
-//            print("Copy Error: \(error.localizedDescription)")
-//        }
-//    }
-//}

@@ -127,17 +127,14 @@ class NetworkManager {
     static func downloadFile(url: String, completion: @escaping (Result<Data, Error>) -> ()) {
         guard let url = URL(string: url) else { return }
         
-        let headers: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/pdf")]
+        let headers: HTTPHeaders = [HTTPHeader(name: "Content-Type", value: "application/pdf"),
+                                    HTTPHeader(name: "Accept", value: "application/json"),
+                                    HTTPHeader(name: "agent", value: "com.kabinet-zhitelya.rf")]
         
         AF.download(url, method: .get, headers: headers).responseData { (response) in
             switch response.result {
             case .success(let data):
                 completion(.success(data))
-                DispatchQueue.main.async {
-//                    let pdf = PDFDocument(data: data)
-//                    print("PDF doc is \(pdf)")
-//                    print("PDF data is \(data)")
-                }
             case .failure(let error):
                 completion(.failure(error))
             }

@@ -22,7 +22,6 @@
 		DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417625EFB1AA006DBC3D /* UIFont + Extension.swift */; };
 		DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */; };
 		E1022C412631725A00D64C16 /* UIViewController + Extension .swift in Sources */ = {isa = PBXBuildFile; fileRef = E1022C402631725A00D64C16 /* UIViewController + Extension .swift */; };
-		E13657E52637F8CD00130602 /* qwerty.pdf in Resources */ = {isa = PBXBuildFile; fileRef = E13657E42637F8CD00130602 /* qwerty.pdf */; };
 		E157C0AF25F3F607009535D9 /* Alamofire.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E157C0AE25F3F607009535D9 /* Alamofire.framework */; };
 		E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C025F4CEA7009535D9 /* MainVC.swift */; };
 		E157C0C525F4D49A009535D9 /* SignUpVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E157C0C425F4D49A009535D9 /* SignUpVC.swift */; };
@@ -30,7 +29,9 @@
 		E195262125FF50FC0008E36B /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195262025FF50FC0008E36B /* UIView + Extension.swift */; };
 		E1A5BB7125FCACAA00F7B273 /* ScanQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */; };
 		E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */; };
+		E1E6754B265A83EC005F9489 /* Notifications.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1E6754A265A83EC005F9489 /* Notifications.swift */; };
 		E1EBD0B22631DB4D0012167B /* DownloadError.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1EBD0B12631DB4D0012167B /* DownloadError.swift */; };
+		E1F8AC3A265A88F0003AA58B /* GoogleService-Info.plist in Resources */ = {isa = PBXBuildFile; fileRef = E1F8AC39265A88F0003AA58B /* GoogleService-Info.plist */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -52,7 +53,7 @@
 		DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkManager.swift; sourceTree = "<group>"; };
 		E0E78583BD3830E900D63C01 /* Pods-KabinetZhitelya.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.debug.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.debug.xcconfig"; sourceTree = "<group>"; };
 		E1022C402631725A00D64C16 /* UIViewController + Extension .swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIViewController + Extension .swift"; sourceTree = "<group>"; };
-		E13657E42637F8CD00130602 /* qwerty.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = qwerty.pdf; sourceTree = "<group>"; };
+		E1148CBF265A8E9E007ABA37 /* KabinetZhitelya.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KabinetZhitelya.entitlements; sourceTree = "<group>"; };
 		E157C0AE25F3F607009535D9 /* Alamofire.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; path = Alamofire.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		E157C0C025F4CEA7009535D9 /* MainVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MainVC.swift; path = "KabinetZhitelya/View Controllers/MainVC.swift"; sourceTree = SOURCE_ROOT; };
 		E157C0C425F4D49A009535D9 /* SignUpVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SignUpVC.swift; sourceTree = "<group>"; };
@@ -62,7 +63,10 @@
 		E1C051EB261DB5D3004A61DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
 		E1C051EC261DB5D3004A61DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/LaunchScreen.strings; sourceTree = "<group>"; };
 		E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PasswordRecoveryVC.swift; sourceTree = "<group>"; };
+		E1E6754A265A83EC005F9489 /* Notifications.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Notifications.swift; sourceTree = "<group>"; };
 		E1EBD0B12631DB4D0012167B /* DownloadError.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DownloadError.swift; sourceTree = "<group>"; };
+		E1F8AC39265A88F0003AA58B /* GoogleService-Info.plist */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.plist.xml; path = "GoogleService-Info.plist"; sourceTree = "<group>"; };
+		E1F8AC3C265A8938003AA58B /* KabinetZhitelyaRelease.entitlements */ = {isa = PBXFileReference; lastKnownFileType = text.plist.entitlements; path = KabinetZhitelyaRelease.entitlements; sourceTree = "<group>"; };
 		E2B319E9892B2E22AE264F67 /* Pods-KabinetZhitelya.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-KabinetZhitelya.release.xcconfig"; path = "Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -118,12 +122,15 @@
 		DC3C9C4425EFA7540047F13F /* KabinetZhitelya */ = {
 			isa = PBXGroup;
 			children = (
+				E1148CBF265A8E9E007ABA37 /* KabinetZhitelya.entitlements */,
+				E1F8AC3C265A8938003AA58B /* KabinetZhitelyaRelease.entitlements */,
+				E16D6E2226555B73001C8E0F /* Auth */,
 				E1EBD0B02631DB390012167B /* Helpers */,
 				DCB9416825EFB136006DBC3D /* Extensions */,
 				DC3C9C5F25EFADCF0047F13F /* Servicies */,
 				DC3C9C5C25EFADA80047F13F /* Supporting Files */,
 				DC3C9C5925EFAD870047F13F /* View Controllers */,
-				DC3C9C5A25EFAD920047F13F /* Storyboards */,
+				DC3C9C5025EFA7570047F13F /* LaunchScreen.storyboard */,
 				DC3C9C5B25EFAD9D0047F13F /* Resources */,
 			);
 			path = KabinetZhitelya;
@@ -132,29 +139,15 @@
 		DC3C9C5925EFAD870047F13F /* View Controllers */ = {
 			isa = PBXGroup;
 			children = (
-				DC3C9C4925EFA7540047F13F /* SignInVC.swift */,
-				DC3B622E25EFEC0A0064E457 /* EnterPasswordVC.swift */,
+				DC3C9C4B25EFA7540047F13F /* Main.storyboard */,
 				E157C0C025F4CEA7009535D9 /* MainVC.swift */,
-				E157C0C425F4D49A009535D9 /* SignUpVC.swift */,
-				E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */,
-				E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */,
 			);
 			path = "View Controllers";
-			sourceTree = "<group>";
-		};
-		DC3C9C5A25EFAD920047F13F /* Storyboards */ = {
-			isa = PBXGroup;
-			children = (
-				DC3C9C4B25EFA7540047F13F /* Main.storyboard */,
-				DC3C9C5025EFA7570047F13F /* LaunchScreen.storyboard */,
-			);
-			path = Storyboards;
 			sourceTree = "<group>";
 		};
 		DC3C9C5B25EFAD9D0047F13F /* Resources */ = {
 			isa = PBXGroup;
 			children = (
-				E13657E42637F8CD00130602 /* qwerty.pdf */,
 				DC3C9C4E25EFA7570047F13F /* Assets.xcassets */,
 			);
 			path = Resources;
@@ -164,6 +157,7 @@
 			isa = PBXGroup;
 			children = (
 				DC3C9C4525EFA7540047F13F /* AppDelegate.swift */,
+				E1F8AC39265A88F0003AA58B /* GoogleService-Info.plist */,
 				DC3C9C5325EFA7570047F13F /* Info.plist */,
 				DC3C9C4725EFA7540047F13F /* SceneDelegate.swift */,
 				DC3B623125EFF44F0064E457 /* Constants.swift */,
@@ -175,6 +169,7 @@
 			isa = PBXGroup;
 			children = (
 				DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */,
+				E1E6754A265A83EC005F9489 /* Notifications.swift */,
 			);
 			name = Servicies;
 			sourceTree = "<group>";
@@ -199,6 +194,18 @@
 				E1022C402631725A00D64C16 /* UIViewController + Extension .swift */,
 			);
 			path = UIKit;
+			sourceTree = "<group>";
+		};
+		E16D6E2226555B73001C8E0F /* Auth */ = {
+			isa = PBXGroup;
+			children = (
+				DC3C9C4925EFA7540047F13F /* SignInVC.swift */,
+				DC3B622E25EFEC0A0064E457 /* EnterPasswordVC.swift */,
+				E157C0C425F4D49A009535D9 /* SignUpVC.swift */,
+				E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */,
+				E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */,
+			);
+			path = Auth;
 			sourceTree = "<group>";
 		};
 		E1EBD0B02631DB390012167B /* Helpers */ = {
@@ -271,8 +278,8 @@
 			buildActionMask = 2147483647;
 			files = (
 				DC3C9C5225EFA7570047F13F /* LaunchScreen.storyboard in Resources */,
+				E1F8AC3A265A88F0003AA58B /* GoogleService-Info.plist in Resources */,
 				DC3C9C4F25EFA7570047F13F /* Assets.xcassets in Resources */,
-				E13657E52637F8CD00130602 /* qwerty.pdf in Resources */,
 				DC3C9C4D25EFA7540047F13F /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -327,6 +334,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				DCB9417A25EFCBC6006DBC3D /* NetworkManager.swift in Sources */,
+				E1E6754B265A83EC005F9489 /* Notifications.swift in Sources */,
 				E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */,
 				DC3B623225EFF44F0064E457 /* Constants.swift in Sources */,
 				DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */,
@@ -494,8 +502,9 @@
 			baseConfigurationReference = E0E78583BD3830E900D63C01 /* Pods-KabinetZhitelya.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KabinetZhitelya/KabinetZhitelya.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -517,9 +526,10 @@
 			baseConfigurationReference = E2B319E9892B2E22AE264F67 /* Pods-KabinetZhitelya.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CODE_SIGN_ENTITLEMENTS = KabinetZhitelya/KabinetZhitelyaRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 7;
+				CURRENT_PROJECT_VERSION = 9;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
