@@ -14,6 +14,7 @@ enum DownloadErrors {
 }
 
 extension DownloadErrors: LocalizedError {
+    
     var errorDescription: String? {
         switch self {
         case .serverError:

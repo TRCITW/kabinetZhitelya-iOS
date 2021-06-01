@@ -19,11 +19,6 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // This delegate does not imply the connecting scene or session are new (see `application:configurationForConnectingSceneSession` instead).
         window?.overrideUserInterfaceStyle = .light
         guard let winScene = (scene as? UIWindowScene) else { return }
-        chechAuthStatus(winScene: winScene)
-    }
-    
-    func chechAuthStatus(winScene: UIWindowScene) {
-        
     }
 
     func sceneDidDisconnect(_ scene: UIScene) {
