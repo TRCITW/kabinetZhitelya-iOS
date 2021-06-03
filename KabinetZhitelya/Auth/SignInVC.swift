@@ -87,6 +87,14 @@ class SignInVC: UIViewController {
     }
     
     @IBAction func nextStep(_ sender: UIButton) {
+        guard let email = loginTextField.text else {
+            showAlert(title: AuthErrors.notFilled.errorDescription, message: nil)
+            return
+        }
+        guard Validatos.isSimpleEmail(email) else {
+            showAlert(title: AuthErrors.simpleEmail.errorDescription, message: nil)
+            return
+        }
         nextStepButton.isHidden = true
         loginButton.isHidden = false
         passwordTF.isHidden = false
@@ -106,28 +114,23 @@ class SignInVC: UIViewController {
         loginActivityIndicator.isHidden = false
         loginActivityIndicator.startAnimating()
         loginButton.isHidden = true
-        guard
-            let username = loginTextField.text,
-            let password = passwordTF.text
-        else { return }
         
-        let credentials: [String: Any] = ["username": username,
-                                          "password": password]
+        let email = loginTextField.text
+        let password = passwordTF.text
         
-        NetworkManager.signIn(body: credentials, completion201: { (cookies) in
-            self.cokkies = cookies
-            let mainVC = MainVC()
-            mainVC.cookies = cookies
-            self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
-        }, completion403: {
-            let alert = UIAlertController(title: "Неверный логин или пароль", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            
-            self.present(alert, animated: true)
-            self.loginButton.isHidden = false
-            self.loginActivityIndicator.stopAnimating()
-        })
+        NetworkManager.shared.signIn(email: email, password: password) { (result) in
+            switch result {
+            case .success(let cookies):
+                self.cokkies = cookies
+                let mainVC = MainVC()
+                mainVC.cookies = cookies
+                self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
+            case .failure(let error):
+                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.loginButton.isHidden = false
+                self.loginActivityIndicator.stopAnimating()
+            }
+        }
     }
     
 //MARK: - Navigation
@@ -141,6 +144,11 @@ class SignInVC: UIViewController {
         if segue.identifier == "toMainVCSegue" {
             guard let dvc = segue.destination as? MainVC else { return }
             dvc.cookies = cokkies
+        }
+        
+        if segue.identifier == "PasswordRecovery" {
+            guard let dvc = segue.destination as? PasswordRecoveryVC else { return }
+            dvc.email = loginTextField.text
         }
     }
 }

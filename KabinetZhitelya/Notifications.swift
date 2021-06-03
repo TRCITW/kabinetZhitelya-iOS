@@ -17,7 +17,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     func requestAutorization() {
         notificationCenter.requestAuthorization(options: [.alert, .sound, .badge]) { (granted, error) in
-            print("Permission granted: \(granted)")
+//            print("Permission granted: \(granted)")
             
             guard granted else { return }
             self.getNotificationSettings()
@@ -26,7 +26,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
     
     func getNotificationSettings() {
         notificationCenter.getNotificationSettings { (settings) in
-            print("Notification settings: \(settings)")
+//            print("Notification settings: \(settings)")
             
             guard settings.authorizationStatus == .authorized else { return }
             
@@ -41,6 +41,7 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
         Messaging.messaging().token { token, error in
           if let error = error {
             print("Error fetching FCM registration token: \(error)")
+            return
           } else if let token = token {
             print("FCM registration token: \(token)")
 //            self.fcmRegTokenMessage.text  = "Remote FCM registration token: \(token)"
@@ -50,7 +51,8 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
 }
 
 extension Notifications: MessagingDelegate {
+    
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-        print(fcmToken)
+//        print(fcmToken)
     }
 }

@@ -106,7 +106,7 @@
                                             <color key="titleColor" red="0.01176470588" green="0.4039215686" blue="0.80000000000000004" alpha="1" colorSpace="calibratedRGB"/>
                                         </state>
                                         <connections>
-                                            <segue destination="iWL-j5-4rT" kind="show" id="uen-3d-EOU"/>
+                                            <segue destination="iWL-j5-4rT" kind="show" identifier="PasswordRecovery" id="uen-3d-EOU"/>
                                         </connections>
                                     </button>
                                     <stackView opaque="NO" contentMode="scaleToFill" axis="vertical" spacing="30" translatesAutoresizingMaskIntoConstraints="NO" id="ur2-QI-KuP">
@@ -686,7 +686,7 @@
         <image name="loginIcon" width="28" height="28"/>
         <image name="logo" width="102" height="102"/>
         <image name="mailImage" width="185" height="139"/>
-        <image name="кабинет-жителя.рф" width="167.33332824707031" height="16.333333969116211"/>
+        <image name="кабинет-жителя.рф" width="502" height="49"/>
         <systemColor name="labelColor">
             <color white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
         </systemColor>

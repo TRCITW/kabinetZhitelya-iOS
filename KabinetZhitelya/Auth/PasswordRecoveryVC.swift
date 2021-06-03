@@ -10,6 +10,8 @@ import UIKit
 
 class PasswordRecoveryVC: UIViewController {
     
+    var email: String!
+    
     @IBOutlet var recoveryLabel: UILabel!
     @IBOutlet var loginTF: UITextField!
     @IBOutlet var requestRecoveryButton: UIButton!
@@ -17,29 +19,33 @@ class PasswordRecoveryVC: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
 
+        loginTF.text = email
         setupViews()
     }
     
     private func setupViews() {
-        requestRecoveryButton.isEnabled = false
-        requestRecoveryButton.alpha = 0.5
+        if loginTF.text != "" {
+            requestRecoveryButton.isEnabled = true
+            requestRecoveryButton.alpha = 1.0
+        } else {
+            requestRecoveryButton.isEnabled = false
+            requestRecoveryButton.alpha = 0.5
+        }
         loginTF.setupTF()
         requestRecoveryButton.setupBlueButton(title: "Отправить")
         loginTF.addTarget(self, action: #selector(textFieldChanged), for: .editingChanged)
     }
     
     @IBAction func requestRecovery(_ sender: UIButton) {
-        guard let username = loginTF.text else { return }
-        let body: [String: Any] = ["username": username]
-        NetworkManager.requestRecovery(body: body) {
-            self.performSegue(withIdentifier: "recoverySuccess", sender: nil)
-        } completion406: {
-            let alert = UIAlertController(title: "Ошибка. Не удалось найти логин", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
+        
+        NetworkManager.shared.requestRecovery(email: loginTF.text) { (result) in
+            switch result {
+            case .success(_):
+                self.performSegue(withIdentifier: "recoverySuccess", sender: nil)
+            case .failure(let error):
+                self.showAlert(title: error.localizedDescription, message: nil)
+            }
         }
-
     }
     
     @IBAction func closeScreen(_ sender: UIButton) {
@@ -49,12 +55,12 @@ class PasswordRecoveryVC: UIViewController {
     override func touchesBegan(_ touches: Set<UITouch>, with event: UIEvent?) {
         view.endEditing(true)
     }
-
 }
 
 // MARK: - Text Field Delegate
 
 extension PasswordRecoveryVC: UITextFieldDelegate {
+    
     @objc private func textFieldChanged() {
         if loginTF.text?.isEmpty == true {
             requestRecoveryButton.isEnabled = false

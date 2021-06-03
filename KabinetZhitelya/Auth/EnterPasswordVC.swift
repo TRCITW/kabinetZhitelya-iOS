@@ -73,22 +73,20 @@ class EnterPasswordVC: UIViewController {
         let credentials: [String: Any] = ["username": username,
                                           "password": password]
         
-        NetworkManager.signIn(body: credentials, completion201: { (cookies) in
-            self.cokkies = cookies
-            print("Cookies on enterpass Screen is: \(self.cokkies)")
-            let mainVC = MainVC()
-            mainVC.cookies = cookies
-            self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
-            //self.activityIndicator.stopAnimating()
-        }, completion403: {
-            let alert = UIAlertController(title: "Неверный логин или пароль", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-        })
+//        NetworkManager.shared.signIn(body: credentials, completion201: { (cookies) in
+//            self.cokkies = cookies
+//            let mainVC = MainVC()
+//            mainVC.cookies = cookies
+//            self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
+//        }, completion403: {
+//            let alert = UIAlertController(title: "Неверный логин или пароль", message: "", preferredStyle: .alert)
+//            let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
+//            alert.addAction(okAction)
+//            self.present(alert, animated: true)
+//        })
+    
         
         enterButton.setTitle("Войти", for: .normal)
-        print(credentials)
     }
     
     @IBAction func goToTelegramBot() {

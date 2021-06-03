@@ -49,6 +49,7 @@ class MainVC: UIViewController {
         self.webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
         self.webView.uiDelegate = self
         self.webView.navigationDelegate = self
+        self.webView.allowsBackForwardNavigationGestures = true
         
         view.addSubview(webView)
         self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
@@ -56,7 +57,7 @@ class MainVC: UIViewController {
         loadWebPage(url: Constants.baseUrl)
     }
     
-    private func loadWebPage(url: String) {
+    @objc private func loadWebPage(url: String) {
         let url = URL(string: url)
         let request = URLRequest(url: url!)
         for cookie in cookies {
@@ -64,7 +65,6 @@ class MainVC: UIViewController {
         }
         self.webView.load(request)
     }
-    
     
     private func checkloginStatus() {
         if token as? String != "1" {
@@ -144,19 +144,35 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
     }
     
     private func downloadFromAccruals(url: String) {
-        NetworkManager.downloadFile(url: url) { (result) in
-            switch result {
-            case .success(let data):
+        let button = UIButton()
+        button.backgroundColor = .blue
+        button.setTitle("Back to controller", for: .normal)
+        button.frame = CGRect(x: 50, y: 100, width: 100, height: 50)
+        self.view.addSubview(button)
+        button.addTarget(self, action: #selector(loadWebPageAccruals), for: .touchUpInside)
+//        NetworkManager.downloadFile(url: url) { (result) in
+//            switch result {
+//            case .success(let data):
 //                guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
-                let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-                self.present(activityController, animated: true, completion: nil)
-                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-            case .failure(let error):
-                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
-                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-                }
-            }
+//                let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
+//                self.present(activityController, animated: true, completion: nil)
+//                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+//            case .failure(let error):
+//                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
+//                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
+//                }
+//            }
+//        }
+    }
+    
+    @objc private func loadWebPageAccruals() {
+        let urlString = "https://lk2.eis24.me/#/accruals/all/"
+        let url = URL(string: urlString)
+        let request = URLRequest(url: url!)
+        for cookie in cookies {
+            self.webView.configuration.websiteDataStore.httpCookieStore.setCookie(cookie)
         }
+        self.webView.load(request)
     }
     
     private func downloadFromQuestions(url: String) {
