@@ -12,7 +12,6 @@ import PDFKit
 
 class MainVC: UIViewController {
     
-//    var customUrl = "https://lk2.eis24.me/api/v4/accruals/download_file/?file_id=60a67ba9e79279003117ff56&author=608134dc593a3c0010ac898a"
     var cookies: [HTTPCookie] = []
     let token = UserDefaults.standard.object(forKey: "token")
     var webView: WKWebView!
@@ -23,26 +22,8 @@ class MainVC: UIViewController {
            
         checkloginStatus()
         setupWebView()
-//        downloadData()
         Notifications().getFCMToken()
     }
-    
-//    private func downloadData() {
-//        NetworkManager.downloadFile(url: customUrl) { (result) in
-//            switch result {
-//            case .success(let data):
-////                    guard let pdf = PDFDocument(data: data) else { print("cant cast to pdf"); return }
-//                print(data)
-//                let activityController = UIActivityViewController(activityItems: [data], applicationActivities: nil)
-//                self.present(activityController, animated: true, completion: nil)
-//                self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-//            case .failure(let error):
-//                self.showAlert(title: "Ошибка сохранения файла", message: error.localizedDescription) {
-//                    self.loadWebPage(url: "https://lk2.eis24.me/#/accruals/all/")
-//                }
-//            }
-//        } // NetworkManager
-//    }
     
     private func setupWebView() {
         self.webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
@@ -102,28 +83,28 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
     
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
-        let url = "\(navigationAction.request)"
-        print("download url is ", url)
-        
-        if url.contains("file") && url.contains("requests") {
-            downloadFromRequests(url: url)
-            return
-        }
-        
-        if url.contains("download") {
-            downloadFromAccruals(url: url)
-            return
-        }
-        
-        if url.contains("file") && url.contains("tickets") {
-            downloadFromQuestions(url: url)
-            return
-        }
-        
-        if url.contains("online") && url.contains("cash") {
-            downloadFromPayments(url: url)
-            return
-        }
+//        let url = "\(navigationAction.request)"
+//        print("download url is ", url)
+//        
+//        if url.contains("file") && url.contains("requests") {
+//            downloadFromRequests(url: url)
+//            return
+//        }
+//        
+//        if url.contains("download") {
+//            downloadFromAccruals(url: url)
+//            return
+//        }
+//        
+//        if url.contains("file") && url.contains("tickets") {
+//            downloadFromQuestions(url: url)
+//            return
+//        }
+//        
+//        if url.contains("online") && url.contains("cash") {
+//            downloadFromPayments(url: url)
+//            return
+//        }
     }
     
     private func downloadFromRequests(url: String) {
@@ -148,8 +129,6 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
         button.backgroundColor = .blue
         button.setTitle("Back to controller", for: .normal)
         button.frame = CGRect(x: 50, y: 100, width: 100, height: 50)
-        self.view.addSubview(button)
-        button.addTarget(self, action: #selector(loadWebPageAccruals), for: .touchUpInside)
 //        NetworkManager.downloadFile(url: url) { (result) in
 //            switch result {
 //            case .success(let data):
