@@ -48,6 +48,8 @@ class ScanQRCodeVC: UIViewController {
     }
 }
 
+// MARK: - AVCapture Metadata Output Objects Delegate
+
 extension ScanQRCodeVC: AVCaptureMetadataOutputObjectsDelegate {
     
     func metadataOutput(_ output: AVCaptureMetadataOutput, didOutput metadataObjects: [AVMetadataObject], from connection: AVCaptureConnection) {
@@ -63,13 +65,10 @@ extension ScanQRCodeVC: AVCaptureMetadataOutputObjectsDelegate {
                         self.performSegue(withIdentifier: "unwindSegueToSignInVC", sender: nil)
                     }
                 } completion404: {
-                    let alert = UIAlertController(title: "По данному QR коду невозможно произвести оплату", message: "", preferredStyle: .alert)
-                    let cancel = UIAlertAction(title: "OK", style: .cancel) { (action) in
+                    self.showAlert(title: "По данному QR коду невозможно произвести оплату", message: nil) {
+                        self.activityIndicator.stopAnimating()
                         self.performSegue(withIdentifier: "unwindSegueToSignInVC", sender: nil)
                     }
-                    alert.addAction(cancel)
-                    self.activityIndicator.stopAnimating()
-                    self.present(alert, animated: true, completion: nil)
                 }
             }
         }

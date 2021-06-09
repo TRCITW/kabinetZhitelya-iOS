@@ -42,13 +42,9 @@ class SignUpVC: UIViewController {
                                    "number": account]
         
         NetworkManager.signUp(body: body, completion201: {
-            self.performSegue(withIdentifier: "", sender: nil)
+            self.performSegue(withIdentifier: "ToMainVCSegue", sender: nil)
         }, completion406: {
-            let alert = UIAlertController(title: "Некорректные данные", message: "", preferredStyle: .alert)
-            let okAction = UIAlertAction(title: "ОК", style: .cancel, handler: nil)
-            alert.addAction(okAction)
-            self.present(alert, animated: true)
-            
+            self.showAlert(title: "Некорректные данные", message: nil)
         })
 
     }

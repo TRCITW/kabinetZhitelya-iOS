@@ -126,7 +126,7 @@ class SignInVC: UIViewController {
                 mainVC.cookies = cookies
                 self.performSegue(withIdentifier: "toMainVCSegue", sender: nil)
             case .failure(let error):
-                self.showAlert(title: "Error", message: error.localizedDescription)
+                self.showAlert(title: "Ошибка", message: error.localizedDescription)
                 self.loginButton.isHidden = false
                 self.loginActivityIndicator.stopAnimating()
             }
@@ -136,10 +136,6 @@ class SignInVC: UIViewController {
 //MARK: - Navigation
     
     override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
-        if segue.identifier == "toEnterPasswordSegue" {
-            guard let dvc = segue.destination as? EnterPasswordVC else { return }
-            dvc.username = loginTextField.text
-        }
         
         if segue.identifier == "toMainVCSegue" {
             guard let dvc = segue.destination as? MainVC else { return }

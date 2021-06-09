@@ -415,6 +415,7 @@
                         <outlet property="registrationLabel" destination="h9s-Ty-2a3" id="yZJ-4N-0B2"/>
                         <outlet property="signUpButton" destination="7wY-fn-0YH" id="pUm-3t-os1"/>
                         <outlet property="surnameTF" destination="byc-th-pHR" id="Ixp-LN-6iD"/>
+                        <segue destination="4VY-nu-mBY" kind="show" identifier="ToMainVCSegue" id="yWO-kK-y6a"/>
                     </connections>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="o0r-Wf-r2Z" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
@@ -677,6 +678,9 @@
             <point key="canvasLocation" x="980" y="1037"/>
         </scene>
     </scenes>
+    <inferredMetricsTieBreakers>
+        <segue reference="yWO-kK-y6a"/>
+    </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="24" height="24"/>
         <image name="2" width="24" height="24"/>
