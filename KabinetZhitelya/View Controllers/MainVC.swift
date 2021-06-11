@@ -56,9 +56,7 @@ class MainVC: UIViewController {
     }
     
     override func observeValue(forKeyPath keyPath: String?, of object: Any?, change: [NSKeyValueChangeKey : Any]?, context: UnsafeMutableRawPointer?) {
-        
         let key = "\(change![NSKeyValueChangeKey.newKey] ?? "")"
-        print(key)
         if key == "https://lk2.eis24.me/#/auth/login/" {
             UserDefaults.standard.setValue("", forKey: "token")
             DispatchQueue.main.async {
@@ -77,10 +75,7 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
         decisionHandler(.allow)
         let url = "\(navigationAction.request)"
-        print("URL is ", url)
-        
-        
-        if url.contains("arseniy") && url.contains("bot") {
+        if url.contains("externalLink") || url.contains("arseniy") {
             guard let url = URL(string: url) else { return }
             UIApplication.shared.open(url)
             return
