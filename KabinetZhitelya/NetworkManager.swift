@@ -13,23 +13,7 @@ import PDFKit
 class NetworkManager {
     
     static let shared = NetworkManager()
-    
-    private func createRequest(method: HTTPMethod, body: [String: Any]?, endpoint: Endpoints) -> URLRequest? {
-        guard
-            let url = URL(string: Constants.baseUrl + endpoint.rawValue)
-        else { return nil }
-        var request = URLRequest(url: url)
-        if let body = body {
-            let httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-            request.httpBody = httpBody
-        }
-        request.method = method
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
-        request.setValue("ios", forHTTPHeaderField: "os")
-        return request
-    }
+    private let notification = Notifications()
     
     func signIn(email: String?, password: String?, completion: @escaping (Result<[HTTPCookie], Error>) -> Void) {
         
@@ -49,11 +33,15 @@ class NetworkManager {
             return
         }
         
+        let fcmToken = notification.messaging.fcmToken ?? ""
+        
         let body: [String: Any] = ["username": email,
-                                   "password": password]
+                                   "password": password,
+                                   "fcm_token": fcmToken,
+                                   "device_os": "iOS"]
         
         guard
-            let request = createRequest(method: .post,
+            let request = NetworkHelper.shared.createRequest(method: .post,
                                     body: body,
                                     endpoint: .signIn)
         else { return }
@@ -79,25 +67,48 @@ class NetworkManager {
         }
     }
     
-    static func signUp(body: [String: Any], completion201: @escaping () -> (), completion406: @escaping () -> ()) {
-        guard let url = URL(string: Constants.baseUrl + "api/v4/registration/sign_in/") else { return }
-        var request = URLRequest(url: url)
-        let httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        request.httpBody = httpBody
-        request.method = .post
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
-        request.setValue("ios", forHTTPHeaderField: "os")
+    func signUp(email: String?, lastName: String?, account: Int?, completion: @escaping (Result<Void, Error>) -> Void) {
+        
+        guard
+            let email = email,
+            let account = account,
+            let lastName = lastName,
+            email != "",
+            lastName != ""
+        else {
+            completion(.failure(AuthErrors.notFilled))
+            return
+        }
+        
+        guard Validatos.isSimpleEmail(email)
+        else {
+            completion(.failure(AuthErrors.simpleEmail))
+            return
+        }
+        
+        let fcmToken = notification.messaging.fcmToken ?? ""
+        
+        let body: [String: Any] = ["email": email,
+                                   "last_name": lastName,
+                                   "number": account,
+                                   "fcm_token": fcmToken,
+                                   "device_os": "iOS"]
+        
+        guard
+            let request = NetworkHelper.shared.createRequest(method: .post,
+                                    body: body,
+                                    endpoint: .signUp)
+        else { return }
+        
         
         AF.request(request).responseJSON { (response) in
             switch response.result {
             case .success(_):
                 let statusCode = response.response?.statusCode
                 if statusCode == 201 {
-                    completion201()
+                    completion(.success(Void()))
                 } else if statusCode == 406 {
-                    completion406()
+                    completion(.failure(AuthErrors.cantCreateAccount))
                 }
             case .failure(let error):
                 print(error.localizedDescription)
@@ -121,7 +132,7 @@ class NetworkManager {
         }
         
         guard
-            let request = createRequest(method: .post, body: ["username": email], endpoint: .requestRecovery)
+            let request = NetworkHelper.shared.createRequest(method: .post, body: ["username": email], endpoint: .requestRecovery)
         else {
             completion(.failure(AuthErrors.unknownError))
             return
@@ -145,16 +156,12 @@ class NetworkManager {
     }
     
     static func linkFromQRCode(QRCode: String, completion200: @escaping (Any) -> (), completion404: @escaping () -> ()) {
-        guard let url = URL(string: Constants.baseUrl + "api/v4/public/bank_redirect_by_qr/") else { return }
-        var request = URLRequest(url: url)
-        let body: [String: Any] = ["text": QRCode]
-        let httpBody = try? JSONSerialization.data(withJSONObject: body, options: [])
-        request.httpBody = httpBody
-        request.method = .post
-        request.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        request.setValue("application/json", forHTTPHeaderField: "Accept")
-        request.setValue("com.kabinet-zhitelya.rf", forHTTPHeaderField: "agent")
-        request.setValue("ios", forHTTPHeaderField: "os")
+        
+        guard
+            let request = NetworkHelper.shared.createRequest(method: .post,
+                                    body: ["text": QRCode],
+                                    endpoint: .linkFromQRCode)
+        else { return }
         
         AF.request(request).responseJSON { (response) in
             let statusCode = response.response?.statusCode

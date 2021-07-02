@@ -18,6 +18,7 @@ enum AuthErrors {
     case verificationIDNotFount
     case userNotFound
     case unknownError
+    case cantCreateAccount
 }
 
 extension AuthErrors: LocalizedError {
@@ -42,6 +43,8 @@ extension AuthErrors: LocalizedError {
             return NSLocalizedString("Ваша сессия устарела. Необходимо перезайти в аккаунт", comment: "")
         case .unknownError:
             return NSLocalizedString("Неизвестная ошибка", comment: "")
+        case .cantCreateAccount:
+            return NSLocalizedString("Не удалось создать аккаунт", comment: "")
         }
     }
 }

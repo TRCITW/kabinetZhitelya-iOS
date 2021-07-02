@@ -9,6 +9,7 @@
 import Foundation
 
 enum Endpoints: String {
+    
     case signIn = "api/v4/auth/login/"
     case signUp = "api/v4/registration/sign_in/"
     case requestRecovery = "api/v4/registration/reset_password/"

@@ -301,7 +301,7 @@
                                                     <constraint firstAttribute="height" constant="42" id="gIH-dE-88B"/>
                                                 </constraints>
                                                 <fontDescription key="fontDescription" type="system" pointSize="14"/>
-                                                <textInputTraits key="textInputTraits"/>
+                                                <textInputTraits key="textInputTraits" keyboardType="numberPad"/>
                                             </textField>
                                         </subviews>
                                     </stackView>
@@ -679,7 +679,7 @@
         </scene>
     </scenes>
     <inferredMetricsTieBreakers>
-        <segue reference="vWf-r7-Ck2"/>
+        <segue reference="yWO-kK-y6a"/>
     </inferredMetricsTieBreakers>
     <resources>
         <image name="1" width="24" height="24"/>

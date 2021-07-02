@@ -31,22 +31,14 @@ class SignUpVC: UIViewController {
     }
     
     @IBAction func signUp(_ sender: UIButton) {
-        guard
-            let email = emailTF.text,
-            let lastName = surnameTF.text,
-            let account = accountTF.text
-        else { return }
-        
-        let body: [String: Any] = ["email": email,
-                                   "last_name": lastName,
-                                   "number": account]
-        
-        NetworkManager.signUp(body: body, completion201: {
-            self.performSegue(withIdentifier: "ToMainVCSegue", sender: nil)
-        }, completion406: {
-            self.showAlert(title: "Некорректные данные", message: nil)
-        })
-
+        NetworkManager.shared.signUp(email: emailTF.text, lastName: surnameTF.text, account: Int(accountTF.text ?? "1")) { (result) in
+            switch result {
+            case .success(_):
+                self.performSegue(withIdentifier: "ToMainVCSegue", sender: nil)
+            case .failure(let error):
+                self.showAlert(title: "Некорректные данные", message: error.localizedDescription)
+            }
+        }
     }
     
     @IBAction func cancel(_ sender: UIButton) {

@@ -28,6 +28,7 @@
 		E1719774266929BF006BCB15 /* AuthErrors.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1719773266929BF006BCB15 /* AuthErrors.swift */; };
 		E1719777266929D6006BCB15 /* Validators.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1719776266929D6006BCB15 /* Validators.swift */; };
 		E171977A26692B24006BCB15 /* Endpoints.swift in Sources */ = {isa = PBXBuildFile; fileRef = E171977926692B24006BCB15 /* Endpoints.swift */; };
+		E18362E4268F1A3D00758E33 /* NetworkHelper.swift in Sources */ = {isa = PBXBuildFile; fileRef = E18362E3268F1A3D00758E33 /* NetworkHelper.swift */; };
 		E195262125FF50FC0008E36B /* UIView + Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = E195262025FF50FC0008E36B /* UIView + Extension.swift */; };
 		E1A5BB7125FCACAA00F7B273 /* ScanQRCodeVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */; };
 		E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */ = {isa = PBXBuildFile; fileRef = E1C2353425F75BD100EC4481 /* PasswordRecoveryVC.swift */; };
@@ -62,6 +63,7 @@
 		E1719773266929BF006BCB15 /* AuthErrors.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AuthErrors.swift; sourceTree = "<group>"; };
 		E1719776266929D6006BCB15 /* Validators.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Validators.swift; sourceTree = "<group>"; };
 		E171977926692B24006BCB15 /* Endpoints.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Endpoints.swift; sourceTree = "<group>"; };
+		E18362E3268F1A3D00758E33 /* NetworkHelper.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkHelper.swift; sourceTree = "<group>"; };
 		E195262025FF50FC0008E36B /* UIView + Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "UIView + Extension.swift"; sourceTree = "<group>"; };
 		E1A5BB7025FCACAA00F7B273 /* ScanQRCodeVC.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ScanQRCodeVC.swift; sourceTree = "<group>"; };
 		E1C051EB261DB5D3004A61DD /* ru */ = {isa = PBXFileReference; lastKnownFileType = text.plist.strings; name = ru; path = ru.lproj/Main.strings; sourceTree = "<group>"; };
@@ -174,6 +176,7 @@
 			children = (
 				DCB9417925EFCBC6006DBC3D /* NetworkManager.swift */,
 				E1E6754A265A83EC005F9489 /* Notifications.swift */,
+				E18362E3268F1A3D00758E33 /* NetworkHelper.swift */,
 			);
 			name = Servicies;
 			sourceTree = "<group>";
@@ -343,6 +346,7 @@
 				E1E6754B265A83EC005F9489 /* Notifications.swift in Sources */,
 				E157C0C125F4CEA7009535D9 /* MainVC.swift in Sources */,
 				DC3B623225EFF44F0064E457 /* Constants.swift in Sources */,
+				E18362E4268F1A3D00758E33 /* NetworkHelper.swift in Sources */,
 				DCB9417725EFB1AA006DBC3D /* UIFont + Extension.swift in Sources */,
 				E1C2353525F75BD100EC4481 /* PasswordRecoveryVC.swift in Sources */,
 				E1022C412631725A00D64C16 /* UIViewController + Extension .swift in Sources */,
@@ -512,7 +516,7 @@
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				CODE_SIGN_ENTITLEMENTS = KabinetZhitelya/KabinetZhitelya.entitlements;
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
@@ -537,7 +541,7 @@
 				CODE_SIGN_ENTITLEMENTS = KabinetZhitelya/KabinetZhitelyaRelease.entitlements;
 				CODE_SIGN_IDENTITY = "Apple Development";
 				CODE_SIGN_STYLE = Automatic;
-				CURRENT_PROJECT_VERSION = 16;
+				CURRENT_PROJECT_VERSION = 19;
 				DEVELOPMENT_TEAM = U9823UR6ZF;
 				EXCLUDED_ARCHS = "";
 				INFOPLIST_FILE = "$(SRCROOT)/KabinetZhitelya/Supporting Files/Info.plist";
