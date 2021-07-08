@@ -109,6 +109,8 @@ class NetworkManager {
                     completion(.success(Void()))
                 } else if statusCode == 406 {
                     completion(.failure(AuthErrors.cantCreateAccount))
+                } else {
+                    completion(.failure(AuthErrors.incorrectData))
                 }
             case .failure(let error):
                 print(error.localizedDescription)

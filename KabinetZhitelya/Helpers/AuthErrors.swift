@@ -19,6 +19,7 @@ enum AuthErrors {
     case userNotFound
     case unknownError
     case cantCreateAccount
+    case incorrectData
 }
 
 extension AuthErrors: LocalizedError {
@@ -45,6 +46,8 @@ extension AuthErrors: LocalizedError {
             return NSLocalizedString("Неизвестная ошибка", comment: "")
         case .cantCreateAccount:
             return NSLocalizedString("Не удалось создать аккаунт", comment: "")
+        case .incorrectData:
+            return NSLocalizedString("Некорректные данные", comment: "")
         }
     }
 }
