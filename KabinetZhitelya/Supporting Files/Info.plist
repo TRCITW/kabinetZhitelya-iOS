@@ -32,6 +32,8 @@
 	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
 	<key>NSLocationWhenInUseUsageDescription</key>
 	<string>Доступ к местоположению используется для поиска услуг рядом с Вами</string>
+	<key>NSPhotoLibraryUsageDescription</key>
+	<string>Для прикрепления фото необходим доступ к библиотеке</string>
 	<key>UIApplicationSceneManifest</key>
 	<dict>
 		<key>UIApplicationSupportsMultipleScenes</key>
