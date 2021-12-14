@@ -9,5 +9,6 @@ target 'KabinetZhitelya' do
   pod 'Alamofire', '5.4.3'
   pod 'Firebase/Analytics', '7.11.0'
   pod 'Firebase/Messaging', '7.11.0'
+  pod 'Firebase/DynamicLinks', '7.11.0'
 
 end

@@ -2,6 +2,7 @@ ${PODS_ROOT}/Target Support Files/Pods-KabinetZhitelya/Pods-KabinetZhitelya-fram
 ${BUILT_PRODUCTS_DIR}/Alamofire/Alamofire.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCore/FirebaseCore.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseCoreDiagnostics/FirebaseCoreDiagnostics.framework
+${BUILT_PRODUCTS_DIR}/FirebaseDynamicLinks/FirebaseDynamicLinks.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseInstallations/FirebaseInstallations.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseInstanceID/FirebaseInstanceID.framework
 ${BUILT_PRODUCTS_DIR}/FirebaseMessaging/FirebaseMessaging.framework

@@ -49,6 +49,6 @@ class Notifications: NSObject, UNUserNotificationCenterDelegate {
 extension Notifications: MessagingDelegate {
     
     func messaging(_ messaging: Messaging, didReceiveRegistrationToken fcmToken: String?) {
-
     }
+    
 }

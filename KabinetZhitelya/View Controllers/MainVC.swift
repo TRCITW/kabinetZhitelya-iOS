@@ -18,20 +18,25 @@ class MainVC: UIViewController {
 
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        if #available(iOS 13.0, *) {
+            SceneDelegate.shared().deeplinksDelegate = self
+        }
            
-        checkloginStatus()
+//        checkloginStatus()
         setupWebView()
     }
     
     private func setupWebView() {
-        self.webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
-        self.webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        self.webView.uiDelegate = self
-        self.webView.navigationDelegate = self
-        self.webView.allowsBackForwardNavigationGestures = true
+        webView = WKWebView(frame: .zero, configuration: webViewConfiguration)
+        webView.scrollView.bounces = false
+        webView.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        webView.uiDelegate = self
+        webView.navigationDelegate = self
+        webView.allowsBackForwardNavigationGestures = true
         
         view.addSubview(webView)
-        self.webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
+        webView.addObserver(self, forKeyPath: #keyPath(WKWebView.url), options: .new, context: nil)
         
         loadWebPage(url: Constants.baseUrl)
     }
@@ -62,6 +67,7 @@ class MainVC: UIViewController {
             DispatchQueue.main.async {
                 let storyboard = UIStoryboard(name: "Main", bundle: nil)
                 let loginScreen = storyboard.instantiateViewController(withIdentifier: "SignInVC")
+                loginScreen.modalPresentationStyle = .fullScreen
                 self.present(loginScreen, animated: true)
             }
         }
@@ -81,4 +87,14 @@ extension MainVC: WKUIDelegate, WKNavigationDelegate{
             return
         }
     }
+}
+
+// MARK: - Deeplink Delegate
+
+extension MainVC: DeeplinkDelegate {
+    
+    func showScreen(page: Deeplinks) {
+        loadWebPage(url: page.rawValue)
+    }
+    
 }

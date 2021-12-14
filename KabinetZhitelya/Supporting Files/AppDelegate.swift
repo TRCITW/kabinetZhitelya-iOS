@@ -8,6 +8,7 @@
 
 import UIKit
 import Firebase
+import FirebaseDynamicLinks
 import UserNotifications
 
 @UIApplicationMain
@@ -20,9 +21,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         // Override point for customization after application launch.
         
         FirebaseApp.configure()
+        
         notifications.messaging.delegate = notifications
         notifications.notificationCenter.delegate = notifications
         notifications.requestAutorization()
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         let rootVC = MainVC()
         let rootNC = UINavigationController(rootViewController: rootVC)
@@ -32,6 +35,65 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         return true
     }
 
+    func application(_ application: UIApplication, continue userActivity: NSUserActivity,
+                     restorationHandler: @escaping ([UIUserActivityRestoring]?) -> Void) -> Bool {
+        if let userActivity = userActivity.webpageURL {
+            let handled = DynamicLinks.dynamicLinks().handleUniversalLink(userActivity) { dynamickClick, error in
+                if let error = error {
+                    print(error)
+                    return
+                }
+                
+                if let dynamickClick = dynamickClick {
+                    self.handleIncomingDynamicLink(dynamickClick)
+                }
+            }
+            
+            return handled
+        } else {
+            return false
+        }
+    }
+    
+    private func handleIncomingDynamicLink(_ dynamicLink: DynamicLink) {
+        guard
+            let url = dynamicLink.url,
+            let components = URLComponents(url: url, resolvingAgainstBaseURL: false),
+            let queryItems = components.queryItems
+        else { return }
+        
+        for queryItem in queryItems {
+            print(queryItem.name)
+        }
+        
+    }
+    
+    @available(iOS 9.0, *)
+    func application(_ app: UIApplication, open url: URL,
+                     options: [UIApplication.OpenURLOptionsKey: Any]) -> Bool {
+//        return application(app, open: url,
+//                           sourceApplication: options[UIApplication.OpenURLOptionsKey
+//                                                        .sourceApplication] as? String,
+//                           annotation: "")
+        
+        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            self.handleIncomingDynamicLink(dynamicLink)
+            return true
+        } else {
+            return false
+        }
+    }
+    
+    func application(_ application: UIApplication, open url: URL, sourceApplication: String?,
+                     annotation: Any) -> Bool {
+        if let dynamicLink = DynamicLinks.dynamicLinks().dynamicLink(fromCustomSchemeURL: url) {
+            self.handleIncomingDynamicLink(dynamicLink)
+            return true
+        } else {
+            return false
+        }
+    }
+    
     // MARK: UISceneSession Lifecycle
 
     @available(iOS 13.0, *)
